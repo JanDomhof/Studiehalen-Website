@@ -8,11 +8,14 @@ const NavbarPC = ({ scrolled }) => {
   return (
     <>
       <Stack direction="row" alignItems="center">
-        <img
-          src={scrolled ? blackLogo : logo}
-          alt="logo"
-          class="website-logo"
-        />
+        <Link to="/">
+          <img
+            src={scrolled ? blackLogo : logo}
+            alt="logo"
+            class="website-logo"
+          />
+        </Link>
+
         <h2 class={scrolled ? "website-title scrolled" : "website-title"}>
           Studiehalen.nl
         </h2>
