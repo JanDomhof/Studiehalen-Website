@@ -15,7 +15,6 @@ const NavbarPC = ({ scrolled }) => {
             class="website-logo"
           />
         </Link>
-
         <h2 class={scrolled ? "website-title scrolled" : "website-title"}>
           Studiehalen.nl
         </h2>
