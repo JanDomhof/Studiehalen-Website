@@ -7,20 +7,34 @@ import Contact from "./pages/Contact";
 import Over from "./pages/Over";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "./App.css";
 
 const App = () => {
+  const THEME = createTheme({
+    typography: {
+      fontFamily: `"Montserrat", sans-serif`,
+      fontWeightLight: 300,
+      fontWeightRegular: 400,
+      fontWeightMedium: 500,
+      fontWeightBold: 700,
+    },
+  });
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/aanbod" element={<Aanbod />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/over-ons" element={<Over />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <ThemeProvider theme={THEME}>
+      <Router>
+        <ScrollToTop />
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/aanbod" element={<Aanbod />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/over-ons" element={<Over />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </ThemeProvider>
   );
 };
 

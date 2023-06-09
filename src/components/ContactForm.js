@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import emailjs from "emailjs-com";
 
 const ContactForm = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const mobile = width < 768;
+
   const [form, setForm] = useState({
     user_name: "",
     user_email: "",
@@ -27,7 +30,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form className="contact-form" onSubmit={sendEmail}>
+    <form className={"contact-form contact-form-mobile"} onSubmit={sendEmail}>
       <input type="hidden" name="contact_number" />
       <label>Name</label>
       <input type="text" name="user_name" required onChange={handleChange} />

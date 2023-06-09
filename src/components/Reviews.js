@@ -1,56 +1,128 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import reviewsData from "../reviews.json";
 import Review from "./Review";
+import { Box, Button, Stack, Typography } from "@mui/material";
+import { ReactComponent as Stars } from "../images/stars.svg";
+import { ReactComponent as StarsMobile } from "../images/stars-mobile.svg";
+import EastIcon from "@mui/icons-material/East";
+import WestIcon from "@mui/icons-material/West";
 
 const Reviews = () => {
-  const [currentPage, setCurrentPage] = useState(0);
+  const [startIndex, setStartIndex] = useState(0);
+  const [stopIndex, setStopIndex] = useState(3);
+  const [width, setWidth] = useState(window.innerWidth);
+  const mobile = width < 768;
   const reviewsPerPage = 3;
-  const totalPages = Math.ceil(reviewsData.length / reviewsPerPage);
+  const totalReviews = reviewsData.length;
 
-  const startIndex = currentPage * reviewsPerPage;
-  const currentReviews = reviewsData.slice(
-    startIndex,
-    startIndex + reviewsPerPage
-  );
-
-  const goToPage = (number) => {
-    setCurrentPage(number);
-  };
-
-  // Calculate page numbers for pagination buttons
-  const pageNumbers = [];
-  for (
-    let i = Math.max(0, currentPage - 2);
-    i <= Math.min(totalPages - 1, currentPage + 2);
-    i++
-  ) {
-    pageNumbers.push(i);
-  }
+  const currentReviews = reviewsData.slice(startIndex, stopIndex);
 
   return (
-    <div class="reviews-container">
-      <div>
-        <h1>Reviews</h1>
-        <div class="center">
-          {currentReviews.map((review, index) => (
-            <Review review={review} index={index} />
-          ))}
-        </div>
-        {totalPages > 1
-          ? pageNumbers.map((number) => (
-              <button
-                key={number}
-                className={`page-button ${
-                  number === currentPage ? "active" : ""
-                }`}
-                onClick={() => goToPage(number)}
+    <Box
+      display={"flex"}
+      justifyContent={"center"}
+      alignItems={"center"}
+      marginTop={20}
+      marginBottom={10}
+    >
+      <Stack
+        direction={"column"}
+        justifyContent={"center"}
+        spacing={5}
+        backgroundColor={"white"}
+        borderRadius={5}
+        boxShadow={"0 2px 8px rgba(0, 0, 0, 0.1);"}
+        padding={5}
+        width={"80%"}
+        position={"relative"}
+        textAlign={"center"}
+      >
+        <Box
+          position={"absolute"}
+          top={mobile ? -120 : -80}
+          left={mobile ? 10 : -100}
+        >
+          {mobile ? <StarsMobile width={400} /> : <Stars width={500} />}
+        </Box>
+        <Typography variant="h2" fontWeight={600}>
+          Reviews
+        </Typography>
+        <Stack
+          direction={mobile ? "column" : "row"}
+          display={"flex"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+        >
+          {mobile ? (
+            <Stack spacing={3}>
+              <Stack
+                direction={"column"}
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
               >
-                {number + 1}
-              </button>
-            ))
-          : null}
-      </div>
-    </div>
+                {currentReviews.map((review, index) => (
+                  <Review review={review} index={index} />
+                ))}
+              </Stack>
+              <Button
+                variant="outlined"
+                onClick={() => {
+                  if (stopIndex + reviewsPerPage > totalReviews) {
+                    setStopIndex(totalReviews);
+                    return;
+                  }
+                  setStopIndex(stopIndex + reviewsPerPage);
+                }}
+              >
+                Meer
+              </Button>
+            </Stack>
+          ) : (
+            <>
+              <Button
+                variant="outlined"
+                onClick={() => {
+                  if (startIndex - reviewsPerPage < 0) {
+                    setStartIndex(0);
+                    setStopIndex(reviewsPerPage);
+                    return;
+                  }
+                  setStartIndex(startIndex - reviewsPerPage);
+                  setStopIndex(stopIndex - reviewsPerPage);
+                }}
+              >
+                <WestIcon />
+              </Button>
+              <Stack
+                direction={"row"}
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+              >
+                {currentReviews.map((review, index) => (
+                  <Review review={review} index={index} />
+                ))}
+              </Stack>
+              <Button
+                variant="outlined"
+                onClick={() => {
+                  if (stopIndex + reviewsPerPage > totalReviews) {
+                    setStartIndex(totalReviews - reviewsPerPage);
+                    setStopIndex(totalReviews);
+                    return;
+                  }
+                  setStartIndex(startIndex + reviewsPerPage);
+                  setStopIndex(stopIndex + reviewsPerPage);
+                }}
+              >
+                <EastIcon cursor={"pointer"} />
+              </Button>
+            </>
+          )}
+        </Stack>
+      </Stack>
+    </Box>
   );
 };
 

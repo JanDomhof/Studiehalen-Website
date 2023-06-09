@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import logo from "../images/Logo test2.svg";
-import blackLogo from "../images/Logo green.svg";
+import { Box, Stack } from "@mui/material";
+import { styled } from "@mui/material/styles";
+import NavbarPC from "./NavbarPC";
+import NavbarMobile from "./NavbarMobile";
+
+const StyledStack = styled(Stack)(({ theme }) => ({
+  transition: `all var(--animation-time-header) ease-in-out`,
+}));
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
+  const mobile = width < 768;
 
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -17,46 +24,31 @@ const Navbar = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("resize", () => setWidth(window.innerWidth));
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.addEventListener("resize", () => setWidth(window.innerWidth));
     };
   }, []);
 
-  let navbarClasses = ["nav"];
-  if (scrolled) {
-    navbarClasses.push("scrolled");
-  }
-
   return (
-    <nav class={`navbar${scrolled ? " scrolled" : ""}`}>
-      <div class="center">
-        <img
-          src={scrolled ? blackLogo : logo}
-          alt="logo"
-          class="website-logo"
-        />
-        <h1 class={`website-title${scrolled ? " scrolled" : ""}`}>
-          Studiehalen.nl
-        </h1>
-      </div>
-      <div class="ce">
-        <Link to="/" class={`link${scrolled ? " scrolled" : ""}`}>
-          Home
-        </Link>
-        <Link to="/over-ons" class={`link${scrolled ? " scrolled" : ""}`}>
-          Over Ons
-        </Link>
-        <Link to="/aanbod" class={`link${scrolled ? " scrolled" : ""}`}>
-          Aanbod
-        </Link>
-        <Link
-          to="/contact"
-          class={`contact-button${scrolled ? " scrolled" : ""}`}
-        >
-          Contact
-        </Link>
-      </div>
-    </nav>
+    <Box zIndex={100} position="sticky" top={0}>
+      <StyledStack
+        direction="row"
+        alignItems="center"
+        backgroundColor={scrolled ? "var(--background)" : "var(--secondary)"}
+        paddingRight={5}
+        paddingLeft={5}
+        justifyContent="space-between"
+        transition="background-color var(--animation-time-header) ease-in-out"
+      >
+        {mobile ? (
+          <NavbarMobile scrolled={scrolled} />
+        ) : (
+          <NavbarPC scrolled={scrolled} />
+        )}
+      </StyledStack>
+    </Box>
   );
 };
 

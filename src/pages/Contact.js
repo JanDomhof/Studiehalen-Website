@@ -1,27 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import ContactForm from "../components/ContactForm";
 import { ReactComponent as EmailIcon } from "../images/email.svg";
 import { ReactComponent as PhoneIcon } from "../images/phone.svg";
 import { ReactComponent as WhatsappIcon } from "../images/whatsapp.svg";
+import { Stack, Typography, Box } from "@mui/material";
 
 const Contact = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+  const mobile = width < 768;
   return (
-    <div class="about-us">
-      <h1 class="page-title">Contact</h1>
-      <p class="content">
+    <Stack
+      display={"flex"}
+      justifyContent={"center"}
+      alignItems={"center"}
+      spacing={5}
+    >
+      <Typography variant="h2" fontWeight={"bold"} marginTop={5}>
+        Contact
+      </Typography>
+      <Typography variant="body1" width={"80%"}>
         We vinden het leuk om van onze klanten te horen en staan altijd klaar om
         eventuele vragen te beantwoorden. Je kunt ons bereiken via onderstaande
         contactgegevens of door het formulier op deze pagina in te vullen.
-      </p>
-      <p class="content">
+      </Typography>
+      <Typography variant="body1" width={"80%"}>
         Als je het formulier invult, zullen wij zo snel mogelijk contact met je
         opnemen. Of het nu gaat om informatie over onze bijlesdiensten of om
         algemene vragen over ons bedrijf, we staan klaar om je te helpen.
-      </p>
-      <div class="columns-contact">
-        <div class="column-contact">
-          <h1>Neem contact met ons op</h1>
-          <div class="icons-container">
+      </Typography>
+      <Stack direction={mobile ? "column" : "row"} spacing={mobile ? 0 : 10}>
+        <Stack display={"flex"} justifyContent={"center"} alignItems={"center"}>
+          <Typography variant="h4" fontWeight={"bold"}>
+            Stuur een bericht
+          </Typography>
+          <ContactForm />
+        </Stack>
+        <Stack display={"flex"} alignItems={"center"} marginBottom={5}>
+          <Typography variant="h4" fontWeight={"bold"} width={"80%"}>
+            Neem contact met ons op
+          </Typography>
+          <Stack
+            direction={"row"}
+            justifyContent={"space-evenly"}
+            width={"100%"}
+          >
             <p>
               <a href="mailto:studiehalen.nl@gmail.com">
                 <EmailIcon class="contact-icon" />
@@ -37,14 +59,10 @@ const Contact = () => {
                 <WhatsappIcon class="contact-icon" />
               </a>
             </p>
-          </div>
-        </div>
-        <div class="column-contact">
-          <h1>Stuur een bericht</h1>
-          <ContactForm />
-        </div>
-      </div>
-    </div>
+          </Stack>
+        </Stack>
+      </Stack>
+    </Stack>
   );
 };
 
