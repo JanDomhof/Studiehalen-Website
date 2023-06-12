@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "./App.css";
+import { Analytics } from "@vercel/analytics/react";
 
 const App = () => {
   const THEME = createTheme({
@@ -22,19 +23,22 @@ const App = () => {
     },
   });
   return (
-    <ThemeProvider theme={THEME}>
-      <Router>
-        <ScrollToTop />
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/aanbod" element={<Aanbod />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/over-ons" element={<Over />} />
-        </Routes>
-        <Footer />
-      </Router>
-    </ThemeProvider>
+    <>
+      <ThemeProvider theme={THEME}>
+        <Router>
+          <ScrollToTop />
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/aanbod" element={<Aanbod />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/over-ons" element={<Over />} />
+          </Routes>
+          <Footer />
+        </Router>
+      </ThemeProvider>
+      <Analytics />
+    </>
   );
 };
 
