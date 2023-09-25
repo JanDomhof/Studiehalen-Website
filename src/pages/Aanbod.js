@@ -128,10 +128,10 @@ const Aanbod = () => {
                 variant="subtitle1"
                 style={{ textDecoration: "line-through" }}
               >
-                €25
+                €30
               </Typography>
               <EastIcon />
-              <Typography variant="subtitle1">€17,5 P/U</Typography>
+              <Typography variant="subtitle1">€25 P/U</Typography>
             </Stack>
             <Typography variant="body1">
               Onze privé-bijlessen zijn de perfecte optie voor studenten die
@@ -212,10 +212,10 @@ const Aanbod = () => {
                 variant="subtitle1"
                 style={{ textDecoration: "line-through" }}
               >
-                €17.50
+                €25
               </Typography>
               <EastIcon />
-              <Typography variant="subtitle1">€12.50 P/U</Typography>
+              <Typography variant="subtitle1">€17.5 P/U</Typography>
             </Stack>
             <Typography variant="body1">
               Onze groepslessen zijn de ideale optie voor studenten die graag
