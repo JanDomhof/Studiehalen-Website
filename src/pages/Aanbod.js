@@ -66,12 +66,13 @@ const Aanbod = () => {
             position={"relative"}
             zIndex={-2}
           >
-            <Box position={"absolute"} left={-400} top={-200} zIndex={-1}>
+            {/* <Box position={"absolute"} left={-400} top={-200} zIndex={-1}>
               <ExclamationIconLeft width={800}></ExclamationIconLeft>
             </Box>
             <Box position={"absolute"} right={-240} top={-200} zIndex={-1}>
               <ExclamationIconRight width={800}></ExclamationIconRight>
-            </Box>
+            </Box> */}
+
             <Typography
               variant="h2"
               textAlign={"center"}
