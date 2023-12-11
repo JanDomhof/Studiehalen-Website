@@ -1,0 +1,9 @@
+.jaar-naam {
+    background-color: transparent;
+    color: rgba(1, 1, 1, 0.4);
+}
+
+.jaar-naam:hover {
+    background-color: rgba(49,146,250,0.1);
+    color: black;
+}

@@ -1,0 +1,113 @@
+{
+    "data":
+    [
+        {
+            "name": "Analyse 1",
+            "code": "WBMT1050",
+            "studie": "Werktuigbouwkunde",
+            "jaar": 1
+        },
+        {
+            "name": "Analyse 2",
+            "code": "WBMT1050",
+            "studie": "Werktuigbouwkunde",
+            "jaar": 1
+        },
+        {
+            "name": "Analyse 3",
+            "code": "WBMT2048",
+            "studie": "Werktuigbouwkunde",
+            "jaar": 2
+        },
+        {
+            "name": "Differentiaalvergelijkingen",
+            "code": "WBMT2048",
+            "studie": "Werktuigbouwkunde",
+            "jaar": 2
+        },
+        {
+            "name": "Kansrekening en Statistiek",
+            "code": "WBMT2049",
+            "studie": "Werktuigbouwkunde",
+            "jaar": 2
+        },
+        {
+            "name": "Numerieke Wiskunde",
+            "code": "WBMT2049",
+            "studie": "Werktuigbouwkunde",
+            "jaar": 2
+        },
+        {
+            "name": "Lineaire Algebra 1",
+            "code": "WBMT1051",
+            "studie": "Werktuigbouwkunde",
+            "jaar": 1
+        },
+        {
+            "name": "Lineaire Algebra 2",
+            "code": "WBMT1051",
+            "studie": "Werktuigbouwkunde",
+            "jaar": 1
+        },
+        {
+            "name": "Statica",
+            "code": "WB1630-20",
+            "studie": "Werktuigbouwkunde",
+            "jaar": 1
+        },
+        {
+            "name": "Sterkteleer",
+            "code": "WB1631-15",
+            "studie": "Werktuigbouwkunde",
+            "jaar": 1
+        },
+        {
+            "name": "Dynamica",
+            "code": "WB1135",
+            "studie": "Werktuigbouwkunde",
+            "jaar": 1
+        },
+        {
+            "name": "Thermodynamica",
+            "code": "WB1530-14",
+            "studie": "Werktuigbouwkunde",
+            "jaar": 1
+        },
+        {
+            "name": "Rigid-Body Dynamics",
+            "code": "WB2630",
+            "studie": "Werktuigbouwkunde",
+            "jaar": 2
+        },
+        {
+            "name": "Continuum Mechanics",
+            "code": "WB2630",
+            "studie": "Werktuigbouwkunde",
+            "jaar": 2
+        },
+        {
+            "name": "Stromingsleer",
+            "code": "WB2542",
+            "studie": "Werktuigbouwkunde",
+            "jaar": 2
+        },
+        {
+            "name": "Warmte-overdracht",
+            "code": "WB2542",
+            "studie": "Werktuigbouwkunde",
+            "jaar": 2
+        },
+        {
+            "name": "Signaalanalyse",
+            "code": "WB2235",
+            "studie": "Werktuigbouwkunde",
+            "jaar": 2
+        },
+        {
+            "name": "Materiaalkunde",
+            "code": "WB2330",
+            "studie": "Werktuigbouwkunde",
+            "jaar": 2
+        }
+    ]
+}

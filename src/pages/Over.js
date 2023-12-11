@@ -3,7 +3,7 @@ import React from "react";
 const Over = () => {
   return (
     <div class="about-us">
-      <h1 class="page-title">Over ons</h1>
+      <h1 class="page-title">Wie </h1>
       <h2 class="heading">Wie zijn wij</h2>
       <p class="content">
         Welkom bij Studiehalen.nl! Wij zijn een team van drie studenten van de

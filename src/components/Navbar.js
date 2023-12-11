@@ -41,6 +41,7 @@ const Navbar = () => {
         paddingLeft={5}
         justifyContent="space-between"
         transition="background-color var(--animation-time-header) ease-in-out"
+        // borderBottom={"1px solid black"}
       >
         {mobile ? (
           <NavbarMobile scrolled={scrolled} />

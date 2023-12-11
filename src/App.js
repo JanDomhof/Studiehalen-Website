@@ -9,13 +9,13 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import "./App.css";
 import { Analytics } from "@vercel/analytics/react";
+import "./App.css";
 
 const App = () => {
   const THEME = createTheme({
     typography: {
-      fontFamily: `"Montserrat", sans-serif`,
+      fontFamily: "GT Walsheim",
       fontWeightLight: 300,
       fontWeightRegular: 400,
       fontWeightMedium: 500,

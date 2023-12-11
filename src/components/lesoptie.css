@@ -1,0 +1,9 @@
+.les-naam {
+    background-color: transparent;
+    color: rgba(1, 1, 1, 0.4);
+}
+
+.les-naam:hover {
+    background-color: rgba(44, 195, 2, 0.1);
+    color: black;
+}

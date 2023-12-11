@@ -1,8 +1,9 @@
 import React from "react";
+import "./reviews.css";
 
 const Review = ({ review, index }) => {
   return (
-    <div key={index} className="review">
+    <div key={index}>
       <h3>{review.author}</h3>
       <ul class="review-info">
         <li>Tentamen cijfer: {review.grade}</li>

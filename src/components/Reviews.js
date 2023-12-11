@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import reviewsData from "../reviews.json";
+import reviewsData from "../data/reviews.json";
 import Review from "./Review";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { ReactComponent as Stars } from "../images/stars.svg";

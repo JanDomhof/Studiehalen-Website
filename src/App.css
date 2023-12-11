@@ -1,16 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;900&display=swap"); */
+/* @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap'); */
+@font-face {
+  font-family: 'GT Walsheim';
+  src: url('./fonts/GT\ Walsheim\ Regular.ttf');
+}
 
 :root {
   --primary: #2e2e85;
-  --secondary: #d4d4e6;
-  --background: #f6f7fb;
-  --header-font: "Montserrat", sans-serif;
+  --secondary: #f4f4ec;
+  --background: #f4f4ec;
+  --header-font: 'GT Walsheim';
   --animation-time-header: 0.2s;
   background-color: var(--background);
 }
 
-body {
-  font-family: "Montserrat", sans-serif;
+* {
+  font-family: 'GT Walsheim';
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .website-logo {
@@ -34,7 +44,7 @@ body {
   margin: 0 1em;
   text-decoration: none;
   color: var(--primary);
-  font-weight: 600;
+  font-weight: 100;
   transition: color var(--animation-time-header) ease-in-out;
 }
 
@@ -68,7 +78,6 @@ body {
   width: 100%;
   height: 55vh;
   padding-top: 50px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .cover-text {
@@ -94,23 +103,18 @@ body {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.reviews {
-  margin: auto;
+/* .reviews {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 1000px;
-}
+} */
 
-.review {
+/* .review {
   height: 300px;
-  width: 250px;
-  margin: 1em;
   padding: 1em;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   text-align: left;
-}
+} */
 
 .review-info {
   list-style-type: none;
@@ -125,7 +129,7 @@ body {
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
-  font-family: var(--header-font);
+  /* font-family: 'GT Walsheim'; */
 }
 
 .page-button.active {
@@ -176,8 +180,14 @@ body {
 }
 
 .lesvorm-img-pc {
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
+  border-radius: 25px 25px 0 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.lesvorm-img-detail-pc {
+  width: 100%;
+  height: 100%;
   border-radius: 25px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -232,7 +242,7 @@ body {
   background-color: white;
   border-radius: 25px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  font-family: var(--header-font);
+  /* font-family: 'GT Walsheim'; */
   color: var(--primary);
   margin-bottom: 100px;
 }
@@ -257,7 +267,7 @@ body {
   border: 1px solid var(--primary);
   border-radius: 5px;
   margin-bottom: 20px;
-  font-family: var(--header-font);
+  /* font-family: 'GT Walsheim'; */
   resize: none;
 }
 

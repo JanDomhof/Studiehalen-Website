@@ -1,0 +1,26 @@
+.swiper {
+    width: 70vw;
+}
+
+.swiper-slide {
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    min-height: 200px;
+    max-width: 300px;
+}
+
+.swiper-wrapper {
+    height: 500px;
+    width: 70%;
+    margin-bottom: 50px;
+    margin-right: 100px;
+}
+
+.swiper-container {
+    padding: 20px
+}
+
+.slick-track {
+    margin: auto;
+}
