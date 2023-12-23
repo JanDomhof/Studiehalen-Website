@@ -1,17 +1,105 @@
-import React from "react";
+import React, { useState } from "react";
+import PageTitle from "../components/PageTitle";
+import { Box, Stack, Typography } from "@mui/material";
+import TeamMember from "../components/TeamMember";
+import Olivier from "../images/LinkedIn-Olivier.jpeg";
+import Dries from "../images/LinkedIn-Dries.jpeg";
+import Jan from "../images/LinkedIn-Jan.jpeg";
+import IconWithText from "../components/IconWithText";
+import GraduationIcon from "../images/graduation.png";
+import ClockIcon from "../images/clock.png";
+import IdeaIcon from "../images/idea.png";
+import DeadlineIcon from "../images/deadline.png";
+import Conversation from "../images/conversation.png";
+import JusticeIcon from "../images/justice.png";
 
 const Over = () => {
+  const [width] = useState(window.innerWidth);
+  const mobile = width < 768;
+
   return (
-    <div class="about-us">
-      <h1 class="page-title">Wie </h1>
-      <h2 class="heading">Wie zijn wij</h2>
-      <p class="content">
-        Welkom bij Studiehalen.nl! Wij zijn een team van drie studenten van de
-        TU Delft die begrijpen hoe stressvol en overweldigend het kan zijn om te
-        studeren voor tentamens. Daarom zijn wij begonnen met Studiehalen.nl,
-        een platform waar we bijles aanbieden aan studenten die een extra handje
-        nodig hebben.
-      </p>
+    <Stack alignItems={mobile ? "flex-start" : "center"}>
+      <Box paddingLeft={"10px"}>
+        <PageTitle title={"OVER ONS"} subtitle={"Ontmoet het team."} />
+        <Stack
+          direction={mobile ? "column" : "row"}
+          justifyContent={"space-around"}
+          marginBottom={20}
+          width={"100vw"}
+          spacing={mobile ? 3 : 0}
+        >
+          <TeamMember
+            name={"Olivier Becht"}
+            bachelor={"Werktuigbouwkunde"}
+            src={Olivier}
+          />
+          <TeamMember
+            name={"Dries Boogaard"}
+            bachelor={"Werktuigbouwkunde"}
+            src={Dries}
+          />
+          <TeamMember
+            name={"Jan Domhof"}
+            bachelor={"Computer Science"}
+            src={Jan}
+          />
+        </Stack>
+      </Box>
+
+      <Box backgroundColor="white" paddingLeft={"10px"}>
+        <Typography variant="h3" marginTop={10}>
+          Voor studenten, door studenten!
+        </Typography>
+        <Typography
+          variant="h6"
+          marginBottom={mobile ? 0 : 5}
+          maxWidth="70vw"
+          marginTop={3}
+        >
+          Waarom?
+        </Typography>
+        <Stack
+          direction={mobile ? "column" : "row"}
+          justifyContent={"space-around"}
+          marginBottom={20}
+          width={"100vw"}
+        >
+          <IconWithText
+            color={"#2C68F0"}
+            icon={DeadlineIcon}
+            title={"Nét nog zelf gestudeerd"}
+            text={
+              "Onze student-docenten hebben recentelijk dezelfde tentamens die jij moet halen zelf ook al gehaald! Hierdoor weten ze nog heel goed wat ze zelf moeilijk vonden van de stof, en kunnen jou dan ook juist met die punten helpen."
+            }
+          ></IconWithText>
+          <IconWithText
+            color={"#EA9D39"}
+            icon={IdeaIcon}
+            title={"Kennen de pijnpuntjes"}
+            text={
+              "De student-docenten weten uit herinnering nog goed waardoor zij de stof zijn gaan begrijpen. Ze kennen de voorbeelden en manieren van denken wat de stof makkelijk te begrijpen maakt. Door van een andere student les te krijgen, leer je zelf hoe je moet nadenken over de stof."
+            }
+          ></IconWithText>
+          <IconWithText
+            color={"#DD5E56"}
+            icon={Conversation}
+            title={"Voelt als een mede-student"}
+            text={
+              "Het is altijd makkelijker om vragen te stellen aan mede-studenten dan aan professoren, docenten of leraren. Doordat je van een mede-student les krijgt, voel je je vrij om alles te vragen wat je zou willen! Aangezien vragen stellen de beste manier is om te leren, denken wij dat je hierdoor nog beter en makkelijk je stof gaat begrijpen."
+            }
+          ></IconWithText>
+          <IconWithText
+            color={"#7859BC"}
+            icon={JusticeIcon}
+            title={"Leren combineren"}
+            text={
+              "Studeren opzich is al moeilijk genoeg, al helemaal als je ook een druk studenten-leven naast je studie hebt. Onze student-docenten kunnen jou goed helpen met plannen, zodat je ook genoeg tijd overhoudt voor leuke dingen in je vrije tijd. Want vergeet niet, zij hebben het ook gedaan!"
+            }
+          ></IconWithText>
+        </Stack>
+      </Box>
+
+      {/* 
       <h2 class="heading">Wat geven wij</h2>
       <p class="content">
         Bij Studiehalen.nl zijn we er trots op dat we bijlessen aanbieden die
@@ -63,8 +151,8 @@ const Over = () => {
         bereiken. Door het aanbieden van de juiste ondersteuning en begeleiding
         hopen we bij te dragen aan het succes en de ontwikkeling van elke
         student die deel uitmaakt van onze gemeenschap.
-      </p>
-    </div>
+      </p> */}
+    </Stack>
   );
 };
 

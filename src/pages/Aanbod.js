@@ -23,6 +23,7 @@ import CourseBoxContainer from "../components/CourseBoxContainer";
 import Reviews from "../components/Reviews";
 import ReviewsNew from "../components/ReviewsNew";
 import { BedTwoTone } from "@mui/icons-material";
+import PageTitle from "../components/PageTitle";
 
 const Aanbod = () => {
   const [width] = useState(window.innerWidth);
@@ -67,24 +68,10 @@ const Aanbod = () => {
         alignItems={"center"}
         textAlign={"center"}
       >
-        <Typography
-          variant="h6"
-          color={"var(--primary)"}
-          backgroundColor={"var(--secondary)"}
-          paddingTop={mobile ? 10 : 20}
-        >
-          ONS AANBOD
-        </Typography>
-        <Typography
-          variant="h2"
-          color={"#333333"}
-          fontWeight={600}
-          backgroundColor={"var(--secondary)"}
-          paddingBottom={25}
-          maxWidth={"90vw"}
-        >
-          Kies welke lesvorm bij jou past.
-        </Typography>
+        <PageTitle
+          title={"ONS AANBOD"}
+          subtitle={"Kies welke lesvorm bij jou past."}
+        />
         <Stack
           direction={mobile ? "column" : "row"}
           width={mobile ? "90%" : "100%"}
@@ -242,7 +229,7 @@ const Aanbod = () => {
               direction={"row"}
               border={"1px solid gray"}
               borderRadius={"10px"}
-              // padding={0.5}
+              padding={0.5}
               spacing={1}
             >
               <LesOptie
