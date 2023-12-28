@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width] = useState(window.innerWidth);
   const mobile = width < 768;
 
   const contactFoot = (
@@ -19,7 +19,7 @@ const Footer = () => {
         <Box>
           <ul
             className="contact-info"
-            style={{ "list-style-type": "none", "padding-left": 0 }}
+            style={{ listStyleType: "none", paddingLeft: 0 }}
           >
             <li>Email:</li>
             <li>Telefoon:</li>
@@ -29,7 +29,7 @@ const Footer = () => {
         <Box>
           <ul
             className="contact-info"
-            style={{ "list-style-type": "none", "padding-left": 0 }}
+            style={{ listStyleType: "none", paddingLeft: 0 }}
           >
             <li>studiehalen.nl@gmail.com</li>
             <li>+31635312865</li>
@@ -44,16 +44,16 @@ const Footer = () => {
     <Stack>
       <Stack direction="column">
         <h3>Navigatie</h3>
-        <ul style={{ "list-style-type": "none", "padding-left": 0 }}>
+        <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
           <li>
-            <Link to="/" style={{ color: "black", "text-decoration": "none" }}>
+            <Link to="/" style={{ color: "black", textDecoration: "none" }}>
               Home
             </Link>
           </li>
           <li>
             <Link
               to="/over-ons"
-              style={{ color: "black", "text-decoration": "none" }}
+              style={{ color: "black", textDecoration: "none" }}
             >
               Over Ons
             </Link>
@@ -61,7 +61,7 @@ const Footer = () => {
           <li>
             <Link
               to="/aanbod"
-              style={{ color: "black", "text-decoration": "none" }}
+              style={{ color: "black", textDecoration: "none" }}
             >
               Aanbod
             </Link>
@@ -69,7 +69,7 @@ const Footer = () => {
           <li>
             <Link
               to="/contact"
-              style={{ color: "black", "text-decoration": "none" }}
+              style={{ color: "black", textDecoration: "none" }}
             >
               Contact
             </Link>

@@ -1,11 +1,9 @@
 import React, { useRef } from "react";
-import { Link } from "react-router-dom";
 import lesvormCursus from "../images/lesvorm-cursus.png";
 import lesvormPrivé from "../images/lesvorm-prive.png";
 import lesvormGroepsles from "../images/lesvorm-groepsles.png";
 import { useState } from "react";
-import { Stack, Typography, Box, List, ListItem } from "@mui/material";
-import EastIcon from "@mui/icons-material/East";
+import { Stack, Typography, Box } from "@mui/material";
 import Lesvorm from "../components/LesVorm";
 import VoordeelItem from "../components/VoordeelItem";
 import DesignServicesIcon from "@mui/icons-material/DesignServices";
@@ -17,12 +15,7 @@ import CrisisAlertIcon from "@mui/icons-material/CrisisAlert";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import LesOptie from "../components/LesOptie";
 import LesVormDetail from "../components/LesVormDetail";
-import JaarOptie from "../components/JaarOptie";
-import CourseBox from "../components/CourseBox";
 import CourseBoxContainer from "../components/CourseBoxContainer";
-import Reviews from "../components/Reviews";
-import ReviewsNew from "../components/ReviewsNew";
-import { BedTwoTone } from "@mui/icons-material";
 import PageTitle from "../components/PageTitle";
 
 const Aanbod = () => {
@@ -35,20 +28,28 @@ const Aanbod = () => {
   const [groepSelected, setGroepSelected] = useState(false);
   const [cursusSelected, setCursusSelected] = useState(false);
 
-  const [jaarBoxPosition, setJaarBoxPosition] = useState(0);
-  const [eersteJaarSelected, setEersteJaarSelected] = useState(true);
-  const [tweedeJaarSelected, setTweedeJaarSelected] = useState(false);
-  const [derdeJaarSelected, setDerdeJaarSelected] = useState(false);
+  const [selectedJaarOptie, setSelectedJaarOptie] = useState("Eerste Jaar");
+  const [selectedLesOptie, setSelectedLesOptie] = useState("Privé Bijles");
 
-  const [selectedJaarOptie, setSelectedJaarOptie] = useState("");
-  const testLocation =
-    selectedJaarOptie === ""
-      ? null
+  const jaarOptieElement = document.getElementById(selectedJaarOptie);
+  const lesOptieElement = document.getElementById(selectedLesOptie);
+
+  const jaarLocation =
+    jaarOptieElement === null
+      ? 25
       : document.getElementById(selectedJaarOptie).getBoundingClientRect()[
           "left"
         ];
 
-  const scrollToSection = (elementRef, f, pos) => {
+  const lesLocation =
+    lesOptieElement === null
+      ? 25
+      : document.getElementById(selectedLesOptie).getBoundingClientRect()[
+          "left"
+        ];
+
+  const scrollToSection = (elementRef, f, pos, lesSelection) => {
+    setSelectedLesOptie(lesSelection);
     setPriveSelected(false);
     setGroepSelected(false);
     setCursusSelected(false);
@@ -61,7 +62,12 @@ const Aanbod = () => {
   };
 
   return (
-    <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+    <Box
+      display={"flex"}
+      justifyContent={"center"}
+      alignItems={"center"}
+      zIndex={0}
+    >
       <Stack
         display={"flex"}
         justifyContent={"center"}
@@ -80,7 +86,14 @@ const Aanbod = () => {
           spacing={mobile ? "40px" : ""}
         >
           <Box
-            onClick={() => scrollToSection(lesvormContent, setPriveSelected, 0)}
+            onClick={() =>
+              scrollToSection(
+                lesvormContent,
+                setPriveSelected,
+                0,
+                "Privé Bijles"
+              )
+            }
             display={"flex"}
             justifyContent={"center"}
           >
@@ -105,13 +118,22 @@ const Aanbod = () => {
                 </>
               }
               image={
-                <img src={lesvormPrivé} alt="lesvorm" class="lesvorm-img-pc" />
+                <img
+                  src={lesvormPrivé}
+                  alt="lesvorm"
+                  className="lesvorm-img-pc"
+                />
               }
             />
           </Box>
           <Box
             onClick={() =>
-              scrollToSection(lesvormContent, setGroepSelected, 128)
+              scrollToSection(
+                lesvormContent,
+                setGroepSelected,
+                128,
+                "Groepsles"
+              )
             }
             display={"flex"}
             justifyContent={"center"}
@@ -147,14 +169,14 @@ const Aanbod = () => {
                 <img
                   src={lesvormGroepsles}
                   alt="lesvorm"
-                  class="lesvorm-img-pc"
+                  className="lesvorm-img-pc"
                 />
               }
             />
           </Box>
           <Box
             onClick={() =>
-              scrollToSection(lesvormContent, setCursusSelected, 256)
+              scrollToSection(lesvormContent, setCursusSelected, 256, "Cursus")
             }
             display={"flex"}
             justifyContent={"center"}
@@ -181,7 +203,11 @@ const Aanbod = () => {
                 </>
               }
               image={
-                <img src={lesvormCursus} alt="lesvorm" class="lesvorm-img-pc" />
+                <img
+                  src={lesvormCursus}
+                  alt="lesvorm"
+                  className="lesvorm-img-pc"
+                />
               }
             />
           </Box>
@@ -201,66 +227,124 @@ const Aanbod = () => {
           <Typography variant="h3" ref={lesvormContent}>
             Lesvormen
           </Typography>
-          <Box
-            position="relative"
-            display={"flex"}
-            justifyContent={"center"}
-            alignItems={"center"}
-          >
-            <Box
-              style={{
-                transform: `translate(${lesvormBoxPosition}px, 0px)`,
-                transitionDuration: "0.2s",
-              }}
-              id={"les-optie-box"}
-              translate={"0"}
-              height={30}
-              width={120}
-              backgroundColor={"rgba(44, 195, 2, 0.3)"}
-              position={"absolute"}
-              left={5}
-              zIndex={0}
-              borderRadius={"10px"}
-            />
+          {mobile ? (
             <Stack
+              direction="row"
+              width="95vw"
+              borderBottom="1px grey solid"
+              justifyContent="space-around"
+              position={"relative"}
+            >
+              {["Privé Bijles", "Groepsles", "Cursus"].map((option, index) => (
+                <Typography
+                  id={option}
+                  key={option}
+                  width={"100px"}
+                  onClick={() => {
+                    if (option === "Privé Bijles") {
+                      setPriveSelected(true);
+                      setGroepSelected(false);
+                      setCursusSelected(false);
+                    }
+                    if (option === "Groepsles") {
+                      setPriveSelected(false);
+                      setGroepSelected(true);
+                      setCursusSelected(false);
+                    }
+                    if (option === "Cursus") {
+                      setPriveSelected(false);
+                      setGroepSelected(false);
+                      setCursusSelected(true);
+                    }
+                    setSelectedLesOptie(option);
+                  }}
+                  sx={{
+                    cursor: "pointer",
+                    color:
+                      selectedLesOptie === option
+                        ? "rgba(44, 195, 2, 1)"
+                        : "black",
+                  }}
+                >
+                  {option}
+                </Typography>
+              ))}
+              <Box
+                bottom={-2}
+                visibility={selectedLesOptie === "" ? "hidden" : "visible"}
+                width={"100px"}
+                height={"2px"}
+                backgroundColor={"rgba(44, 195, 2, 1)"}
+                borderRadius={"5px"}
+                position={"absolute"}
+                left={lesLocation}
+                style={{
+                  transform: `translateX(-3vw)`,
+                  transitionDuration: "0.2s",
+                }}
+              />
+            </Stack>
+          ) : (
+            <Box
+              position="relative"
               display={"flex"}
               justifyContent={"center"}
               alignItems={"center"}
-              direction={"row"}
-              border={"1px solid gray"}
-              borderRadius={"10px"}
-              padding={0.5}
-              spacing={1}
             >
-              <LesOptie
-                text="Privé"
-                setBoxPosition={setLesvormBoxPosition}
-                position={0}
-                selected={priveSelected}
-                setSelected={setPriveSelected}
-                setOtherFalse={setGroepSelected}
-                setOtherFalse2={setCursusSelected}
+              <Box
+                style={{
+                  transform: `translate(${lesvormBoxPosition}px, 0px)`,
+                  transitionDuration: "0.2s",
+                }}
+                id={"les-optie-box"}
+                translate={"0"}
+                height={30}
+                width={120}
+                backgroundColor={"rgba(44, 195, 2, 0.3)"}
+                position={"absolute"}
+                left={5}
+                borderRadius={"10px"}
               />
-              <LesOptie
-                text="Groepsles"
-                setBoxPosition={setLesvormBoxPosition}
-                position={128}
-                selected={groepSelected}
-                setSelected={setGroepSelected}
-                setOtherFalse={setPriveSelected}
-                setOtherFalse2={setCursusSelected}
-              />
-              <LesOptie
-                text="Cursus"
-                setBoxPosition={setLesvormBoxPosition}
-                position={256}
-                selected={cursusSelected}
-                setSelected={setCursusSelected}
-                setOtherFalse={setPriveSelected}
-                setOtherFalse2={setGroepSelected}
-              />
-            </Stack>
-          </Box>
+              <Stack
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                direction={"row"}
+                border={"1px solid gray"}
+                borderRadius={"10px"}
+                padding={0.5}
+                spacing={1}
+              >
+                <LesOptie
+                  text="Privé"
+                  setBoxPosition={setLesvormBoxPosition}
+                  position={0}
+                  selected={priveSelected}
+                  setSelected={setPriveSelected}
+                  setOtherFalse={setGroepSelected}
+                  setOtherFalse2={setCursusSelected}
+                />
+                <LesOptie
+                  text="Groepsles"
+                  setBoxPosition={setLesvormBoxPosition}
+                  position={128}
+                  selected={groepSelected}
+                  setSelected={setGroepSelected}
+                  setOtherFalse={setPriveSelected}
+                  setOtherFalse2={setCursusSelected}
+                />
+                <LesOptie
+                  text="Cursus"
+                  setBoxPosition={setLesvormBoxPosition}
+                  position={256}
+                  selected={cursusSelected}
+                  setSelected={setCursusSelected}
+                  setOtherFalse={setPriveSelected}
+                  setOtherFalse2={setGroepSelected}
+                />
+              </Stack>
+            </Box>
+          )}
 
           {priveSelected ? (
             <LesVormDetail
@@ -434,48 +518,22 @@ const Aanbod = () => {
                     backgroundColor={"rgba(49, 146, 250, 1)"}
                     borderRadius={"5px"}
                     position={"absolute"}
-                    left={testLocation}
+                    left={jaarLocation}
                     style={{
                       transform: `translateX(-3vw)`,
                       transitionDuration: "0.2s",
                     }}
                   />
                 </Stack>
-                <CourseBoxContainer
-                  jaarSelection={
-                    selectedJaarOptie === "Eerste Jaar"
-                      ? 1
-                      : selectedJaarOptie === "Tweede Jaar"
-                      ? 2
-                      : selectedJaarOptie === "Derde Jaar"
-                      ? 3
-                      : 0
-                  }
-                />
+                <CourseBoxContainer jaarSelection={selectedJaarOptie} />
               </>
             ) : (
               <>
                 <Box
-                  position="relative"
                   display={"flex"}
                   justifyContent={"center"}
                   alignItems={"center"}
                 >
-                  <Box
-                    style={{
-                      transform: `translate(${jaarBoxPosition}px, 0px)`,
-                      transitionDuration: "0.2s",
-                    }}
-                    id={"jaar-optie-box"}
-                    translate={"0"}
-                    height={30}
-                    width={200}
-                    backgroundColor={"rgba(49,146,250,0.3)"}
-                    position={"absolute"}
-                    left={5}
-                    zIndex={0}
-                    borderRadius={"10px"}
-                  />
                   <Stack
                     display={"flex"}
                     justifyContent={"center"}
@@ -484,51 +542,44 @@ const Aanbod = () => {
                     border={"1px solid gray"}
                     borderRadius={"10px"}
                     padding={0.5}
-                    spacing={1}
                   >
-                    <JaarOptie
-                      text="Eerste Jaar"
-                      setBoxPosition={setJaarBoxPosition}
-                      position={0}
-                      selected={eersteJaarSelected}
-                      setSelected={setEersteJaarSelected}
-                      setOtherFalse={setTweedeJaarSelected}
-                      setOtherFalse2={setDerdeJaarSelected}
-                      customWidth={200}
-                    />
-                    <JaarOptie
-                      text="Tweede Jaar"
-                      setBoxPosition={setJaarBoxPosition}
-                      position={208}
-                      selected={tweedeJaarSelected}
-                      setSelected={setTweedeJaarSelected}
-                      setOtherFalse={setEersteJaarSelected}
-                      setOtherFalse2={setDerdeJaarSelected}
-                      customWidth={200}
-                    />
-                    <JaarOptie
-                      text="Derde Jaar"
-                      setBoxPosition={setJaarBoxPosition}
-                      position={416}
-                      selected={derdeJaarSelected}
-                      setSelected={setDerdeJaarSelected}
-                      setOtherFalse={setEersteJaarSelected}
-                      setOtherFalse2={setTweedeJaarSelected}
-                      customWidth={200}
-                    />
+                    {["Eerste Jaar", "Tweede Jaar", "Derde Jaar"].map(
+                      (option, index) => (
+                        <Typography
+                          id={option}
+                          key={option}
+                          variant={"h6"}
+                          width={200}
+                          onClick={() => {
+                            setSelectedJaarOptie(option);
+                          }}
+                          sx={{
+                            cursor: "pointer",
+                            color:
+                              selectedJaarOptie === option
+                                ? "rgba(49,146,250,1)"
+                                : "rgba(1, 1, 1, 0.4)",
+                          }}
+                        >
+                          {option}
+                        </Typography>
+                      )
+                    )}
                   </Stack>
+                  <Box
+                    style={{
+                      transitionDuration: "0.2s",
+                      pointerEvents: "none",
+                    }}
+                    height={30}
+                    width={200}
+                    backgroundColor={"rgba(49,146,250,0.3)"}
+                    position={"absolute"}
+                    borderRadius={"10px"}
+                    left={jaarLocation}
+                  />
                 </Box>
-                <CourseBoxContainer
-                  jaarSelection={
-                    eersteJaarSelected
-                      ? 1
-                      : tweedeJaarSelected
-                      ? 2
-                      : derdeJaarSelected
-                      ? 3
-                      : 1
-                  }
-                />
+                <CourseBoxContainer jaarSelection={selectedJaarOptie} />
               </>
             )}
           </Stack>

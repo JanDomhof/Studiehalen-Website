@@ -62,7 +62,7 @@ const Reviews = () => {
                 alignItems={"center"}
               >
                 {currentReviews.map((review, index) => (
-                  <Review review={review} index={index} />
+                  <Review review={review} index={index} key={index} />
                 ))}
               </Stack>
               <Button
@@ -101,7 +101,7 @@ const Reviews = () => {
                 alignItems={"center"}
               >
                 {currentReviews.map((review, index) => (
-                  <Review review={review} index={index} />
+                  <Review review={review} index={index} key={index} />
                 ))}
               </Stack>
               <Button

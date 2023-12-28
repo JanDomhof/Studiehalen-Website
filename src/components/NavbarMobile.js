@@ -1,135 +1,189 @@
 import React, { useState } from "react";
-import logo from "../images/Logo test2.svg";
-import blackLogo from "../images/Logo green.svg";
-import { Stack } from "@mui/material";
-import Drawer from "@mui/material/Drawer";
+import { Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
-import MenuIcon from "@mui/icons-material/Menu";
-import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
-import CloseIcon from "@mui/icons-material/Close";
+import Logo from "./Logo";
+import MenuIcon from "../images/menu.svg";
 
 const NavbarMobile = ({ scrolled }) => {
+  const [width] = useState(window.innerWidth);
+  const mobile = width < 768;
+
   const [isOpen, setIsOpen] = useState(false);
+
+  const openMenu = () => {
+    setIsOpen(true);
+    document.getElementById("overlay").style.visibility = "visible";
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+    document.getElementById("overlay").style.visibility = "hidden";
+    document.body.style.overflow = "unset";
+  };
 
   return (
     <>
-      <IconButton
-        size="large"
-        edge="start"
-        color="inherit"
-        aria-label="logo"
-        onClick={() => setIsOpen(true)}
-      >
-        <MenuIcon />
-      </IconButton>
-      <Link to="/">
-        <img
-          src={scrolled ? blackLogo : logo}
-          alt="logo"
-          class="website-logo"
-        />
-      </Link>
-      <h2 class={scrolled ? "website-title scrolled" : "website-title"}>
-        Studiehalen.nl
-      </h2>
       <Stack
-        direction="column"
-        display={isOpen ? "flex" : "none"}
-        backgroundColor={"white"}
-        position="absolute"
-        justifyContent={"start"}
+        direction={"row"}
+        justifyContent={"center"}
         alignItems={"center"}
-        width={"100%"}
+        display={"flex"}
+      >
+        <Box
+          component="img"
+          sx={{
+            width: 30,
+          }}
+          alt="menu"
+          src={MenuIcon}
+          onClick={() => {
+            openMenu();
+          }}
+          marginRight={2}
+        />
+        <Link to="/">
+          <Logo mobile={mobile} scrolled={scrolled} />
+        </Link>
+        <Typography
+          variant="h5"
+          fontWeight="bold"
+          color={"var(--primary)"}
+          alignSelf={"center"}
+          paddingTop={0.5}
+          marginLeft={1}
+        >
+          Studiehalen.nl
+        </Typography>
+      </Stack>
+
+      <Box
+        id="overlay"
+        width={"100vw"}
+        height={"100vh"}
+        visibility={"hidden"}
+        backgroundColor={"rgba(0, 0, 0, 0.5)"}
+        position={"absolute"}
         left={0}
+        right={0}
+        top={0}
+        bottom={0}
+        onClick={() => {
+          closeMenu();
+        }}
+        zIndex={1}
+      />
+      <Stack
+        direction={"column"}
+        backgroundColor={"white"}
+        position={"absolute"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        width={"65vw"}
+        left={isOpen ? "0" : "-65vw"}
         top={0}
         right={0}
         height={"100vh"}
+        style={{
+          transitionDuration: "0.2s",
+        }}
+        zIndex={2}
       >
         <Stack
-          direction={"row"}
-          display={"flex"}
-          alignItems={"center"}
-          justifyContent={"space-evenly"}
-          width={"100%"}
+          width={"90%"}
+          height={"90%"}
+          justifyContent={"flex-start"}
+          alignItems={"flex-start"}
         >
-          <CloseIcon
-            onClick={() => {
-              setIsOpen(false);
-            }}
-          />
-          <img
-            src={scrolled ? blackLogo : logo}
-            alt="logo"
-            className="website-logo"
-          />
-          <h2 class={scrolled ? "website-title scrolled" : "website-title"}>
-            Studiehalen.nl
-          </h2>
+          <Stack borderBottom={"1px solid rgba(0,0,0,0.3)"}>
+            <Typography variant="subtitle2" fontWeight={"bold"}>
+              Welkom bij Studiehalen.nl
+            </Typography>
+            <Typography variant="body2" marginTop={1} color={"grey"}>
+              Neem contact met ons op om bijles aan te vragen
+            </Typography>
+            <Link
+              to="/contact"
+              style={{
+                padding: "0.35em 0.5em",
+                textDecoration: "none",
+                color: "black",
+                borderRadius: "5px",
+                border: "1px solid black",
+                width: "89%",
+                marginTop: "20px",
+                marginBottom: "30px",
+              }}
+              onClick={() => {
+                closeMenu();
+              }}
+            >
+              Contact
+            </Link>
+          </Stack>
+          <Typography variant="subtitle2" fontWeight={"bold"} marginTop={4}>
+            Waar wil je naartoe?
+          </Typography>
+          <List>
+            <ListItem
+              component={Link}
+              to="/"
+              onClick={() => {
+                closeMenu();
+              }}
+            >
+              <ListItemIcon>
+                <HomeIcon />
+              </ListItemIcon>
+              <ListItemText primary="Home" />
+            </ListItem>
+            <ListItem
+              component={Link}
+              to="/over-ons"
+              onClick={() => {
+                closeMenu();
+              }}
+            >
+              <ListItemIcon>
+                <InfoIcon />
+              </ListItemIcon>
+              <ListItemText primary="Over" />
+            </ListItem>
+            <ListItem
+              component={Link}
+              to="/aanbod"
+              onClick={() => {
+                closeMenu();
+              }}
+            >
+              <ListItemIcon>
+                <ShoppingCartIcon />
+              </ListItemIcon>
+              <ListItemText primary="Aanbod" />
+            </ListItem>
+            <ListItem
+              component={Link}
+              to="/contact"
+              onClick={() => {
+                closeMenu();
+              }}
+            >
+              <ListItemIcon>
+                <MailIcon />
+              </ListItemIcon>
+              <ListItemText primary="Contact" />
+            </ListItem>
+          </List>
         </Stack>
-        <Box height={10}></Box>
-        <Divider orientation="horizontal" flexItem />
-        <List>
-          <ListItem
-            component={Link}
-            to="/"
-            onClick={() => {
-              setIsOpen(false);
-            }}
-          >
-            <ListItemIcon>
-              <HomeIcon />
-            </ListItemIcon>
-            <ListItemText primary="Home" />
-          </ListItem>
-          <ListItem
-            component={Link}
-            to="/over-ons"
-            onClick={() => {
-              setIsOpen(false);
-            }}
-          >
-            <ListItemIcon>
-              <InfoIcon />
-            </ListItemIcon>
-            <ListItemText primary="Over" />
-          </ListItem>
-          <ListItem
-            component={Link}
-            to="/aanbod"
-            onClick={() => {
-              setIsOpen(false);
-            }}
-          >
-            <ListItemIcon>
-              <ShoppingCartIcon />
-            </ListItemIcon>
-            <ListItemText primary="Aanbod" />
-          </ListItem>
-          <ListItem
-            component={Link}
-            to="/contact"
-            onClick={() => {
-              setIsOpen(false);
-            }}
-          >
-            <ListItemIcon>
-              <MailIcon />
-            </ListItemIcon>
-            <ListItemText primary="Contact" />
-          </ListItem>
-        </List>
       </Stack>
     </>
   );

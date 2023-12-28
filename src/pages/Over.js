@@ -6,8 +6,6 @@ import Olivier from "../images/LinkedIn-Olivier.jpeg";
 import Dries from "../images/LinkedIn-Dries.jpeg";
 import Jan from "../images/LinkedIn-Jan.jpeg";
 import IconWithText from "../components/IconWithText";
-import GraduationIcon from "../images/graduation.png";
-import ClockIcon from "../images/clock.png";
 import IdeaIcon from "../images/idea.png";
 import DeadlineIcon from "../images/deadline.png";
 import Conversation from "../images/conversation.png";
@@ -18,9 +16,9 @@ const Over = () => {
   const mobile = width < 768;
 
   return (
-    <Stack alignItems={mobile ? "flex-start" : "center"}>
+    <Stack alignItems={mobile ? "flex-start" : "center"} overflow={"hidden"}>
+      <PageTitle title={"OVER ONS"} subtitle={"Ontmoet het team."} />
       <Box paddingLeft={"10px"}>
-        <PageTitle title={"OVER ONS"} subtitle={"Ontmoet het team."} />
         <Stack
           direction={mobile ? "column" : "row"}
           justifyContent={"space-around"}
@@ -45,16 +43,20 @@ const Over = () => {
           />
         </Stack>
       </Box>
-
-      <Box backgroundColor="white" paddingLeft={"10px"}>
-        <Typography variant="h3" marginTop={10}>
+      <Stack
+        backgroundColor="white"
+        paddingLeft={mobile ? "10px" : ""}
+        alignItems={mobile ? "flex-start" : "center"}
+      >
+        <Typography variant={mobile ? "h4" : "h3"} marginTop={10}>
           Voor studenten, door studenten!
         </Typography>
         <Typography
-          variant="h6"
+          variant="body1"
           marginBottom={mobile ? 0 : 5}
           maxWidth="70vw"
           marginTop={3}
+          fontSize={20}
         >
           Waarom?
         </Typography>
@@ -97,7 +99,7 @@ const Over = () => {
             }
           ></IconWithText>
         </Stack>
-      </Box>
+      </Stack>
 
       {/* 
       <h2 class="heading">Wat geven wij</h2>

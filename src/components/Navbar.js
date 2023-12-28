@@ -32,16 +32,17 @@ const Navbar = () => {
   }, []);
 
   return (
-    <Box zIndex={100} position="sticky" top={0}>
+    <Box position="sticky" top={0} zIndex={1}>
       <StyledStack
         direction="row"
         alignItems="center"
         backgroundColor={scrolled ? "var(--background)" : "var(--secondary)"}
         paddingRight={5}
-        paddingLeft={5}
+        paddingLeft={mobile ? 2 : 5}
+        paddingTop={mobile ? 2 : 0}
+        paddingBottom={mobile ? 2 : 0}
         justifyContent="space-between"
         transition="background-color var(--animation-time-header) ease-in-out"
-        // borderBottom={"1px solid black"}
       >
         {mobile ? (
           <NavbarMobile scrolled={scrolled} />

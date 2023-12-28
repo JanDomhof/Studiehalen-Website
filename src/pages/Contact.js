@@ -3,32 +3,30 @@ import ContactForm from "../components/ContactForm";
 import { ReactComponent as EmailIcon } from "../images/email.svg";
 import { ReactComponent as PhoneIcon } from "../images/phone.svg";
 import { ReactComponent as WhatsappIcon } from "../images/whatsapp.svg";
-import { Stack, Typography, Box } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
+import PageTitle from "../components/PageTitle";
 
 const Contact = () => {
-  const [width, setWidth] = useState(window.innerWidth);
+  const [width] = useState(window.innerWidth);
   const mobile = width < 768;
   return (
-    <Stack
-      display={"flex"}
-      justifyContent={"center"}
-      alignItems={"center"}
-      spacing={5}
-    >
-      <Typography variant="h2" fontWeight={"bold"} marginTop={5}>
-        Contact
-      </Typography>
+    <Stack display={"flex"} justifyContent={"center"} alignItems={"center"}>
+      <PageTitle title={"CONTACT"} subtitle={"Vraag je bijles aan."} />
       <Typography variant="body1" width={"80%"}>
         We vinden het leuk om van onze klanten te horen en staan altijd klaar om
         eventuele vragen te beantwoorden. Je kunt ons bereiken via onderstaande
         contactgegevens of door het formulier op deze pagina in te vullen.
       </Typography>
-      <Typography variant="body1" width={"80%"}>
+      <Typography variant="body1" width={"80%"} marginTop={5}>
         Als je het formulier invult, zullen wij zo snel mogelijk contact met je
         opnemen. Of het nu gaat om informatie over onze bijlesdiensten of om
         algemene vragen over ons bedrijf, we staan klaar om je te helpen.
       </Typography>
-      <Stack direction={mobile ? "column" : "row"} spacing={mobile ? 0 : 10}>
+      <Stack
+        direction={mobile ? "column" : "row"}
+        spacing={mobile ? 0 : 10}
+        marginTop={5}
+      >
         <Stack display={"flex"} justifyContent={"center"} alignItems={"center"}>
           <Typography variant="h4" fontWeight={"bold"}>
             Stuur een bericht
@@ -46,17 +44,17 @@ const Contact = () => {
           >
             <p>
               <a href="mailto:studiehalen.nl@gmail.com">
-                <EmailIcon class="contact-icon" />
+                <EmailIcon className="contact-icon" />
               </a>
             </p>
             <p>
               <a href="tel:+31635312865">
-                <PhoneIcon class="contact-icon" />
+                <PhoneIcon className="contact-icon" />
               </a>
             </p>
             <p>
               <a href="https://wa.me/31635312865?text=Hello%20I%20want%20to%20enquire%20about%20your%20services">
-                <WhatsappIcon class="contact-icon" />
+                <WhatsappIcon className="contact-icon" />
               </a>
             </p>
           </Stack>

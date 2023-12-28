@@ -6,16 +6,16 @@ const PageTitle = ({ title, subtitle }) => {
   const mobile = width < 768;
 
   return (
-    <Box textAlign={"center"}>
+    <Box textAlign={"center"} alignSelf={"center"}>
       <Typography
-        variant="h6"
+        variant={mobile ? "subtitle1" : "h6"}
         color={"var(--primary)"}
-        paddingTop={mobile ? 10 : 20}
+        marginTop={mobile ? 10 : 20}
       >
         {title}
       </Typography>
       <Typography
-        variant="h2"
+        variant={mobile ? "h4" : "h2"}
         color={"#333333"}
         fontWeight={600}
         marginBottom={mobile ? 10 : 25}

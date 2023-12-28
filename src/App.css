@@ -20,7 +20,13 @@ html {
   scroll-behavior: smooth;
 }
 
-.website-logo {
+.website-logo-pc {
+  margin-right: 1em;
+  height: 50px;
+  padding-top: 0.9em;
+}
+
+.website-logo-mobile {
   margin-right: 1em;
   height: 50px;
   padding-top: 0.9em;

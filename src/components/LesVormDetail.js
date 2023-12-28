@@ -1,9 +1,6 @@
-import { Stack, Typography, Box, List, ListItem } from "@mui/material";
+import { Stack, Typography, Box } from "@mui/material";
 import EastIcon from "@mui/icons-material/East";
 import { Link } from "react-router-dom";
-import lesvormCursus from "../images/lesvorm-cursus.png";
-import lesvormPrivé from "../images/lesvorm-prive.png";
-import lesvormGroepsles from "../images/lesvorm-groepsles.png";
 import { useState } from "react";
 
 const LesVormDetail = ({
@@ -68,12 +65,12 @@ const LesVormDetail = ({
         </Typography>
         {voordelen}
         <Box height={30}></Box>
-        <Link to="/contact" class="aanvragen">
+        <Link to="/contact" className="aanvragen">
           Contact
         </Link>
       </Stack>
       <Box width={mobile ? "80%" : 500} paddingLeft={mobile ? 5 : 0}>
-        <img src={image} alt="lesvorm" class="lesvorm-img-detail-pc" />
+        <img src={image} alt="lesvorm" className="lesvorm-img-detail-pc" />
       </Box>
     </Stack>
   );
