@@ -9,6 +9,7 @@
   --background: #f4f4ec;
   --header-font: 'GT Walsheim';
   --animation-time-header: 0.2s;
+  --footer-background: #4a4aa3; /* Choose one of the suggested colors */
   background-color: var(--background);
 }
 

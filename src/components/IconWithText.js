@@ -10,7 +10,7 @@ const IconWithText = ({ color, icon, title, text }) => {
       direction={mobile ? "row" : "column"}
       marginTop={10}
       maxWidth={mobile ? "95vw" : "20vw"}
-      justifyContent={"center"}
+      justifyContent={mobile ? "center" : "start"}
       alignItems={"center"}
       spacing={4}
     >

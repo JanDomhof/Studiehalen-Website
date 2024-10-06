@@ -1,46 +1,77 @@
 import React, { useState } from "react";
-import Reviews from "../components/Reviews";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, IconButton, InputBase, Paper, Stack } from "@mui/material";
+import PageTitle from "../components/PageTitle";
+import SearchIcon from "@mui/icons-material/Search";
 
 const Home = () => {
   const [width] = useState(window.innerWidth);
   const mobile = width < 768;
 
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+
+    // Build the query parameters
+    const params = new URLSearchParams(window.location.search);
+    params.set("search_query", searchQuery);
+
+    // Update the URL without reloading the page
+    const newUrl =
+      window.location.pathname + "?" + params.toString() + "#vakken";
+    window.history.pushState({ path: newUrl }, "", newUrl);
+
+    // Dispatch a custom event to notify about the location change
+    window.dispatchEvent(new Event("locationchange"));
+
+    // Scroll to the vakken section
+    const vakkenSection = document.getElementById("vakken");
+    if (vakkenSection) {
+      vakkenSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <Stack textAlign={"center"} overflow={"hidden"}>
-      {mobile ? (
-        <Stack>
-          <Typography
-            color={"var(--primary)"}
-            variant="h2"
-            paddingTop={5}
-            paddingBottom={5}
-            backgroundColor={"var(--secondary)"}
-          >
-            De beste manier om je studie ècht te begrijpen
-          </Typography>
-          <Box className="cover"></Box>
-        </Stack>
-      ) : (
-        <div className="cover">
-          <h1 className="cover-text">
-            De beste manier om je studie ècht te begrijpen
-          </h1>
-          <p className="cover-text">
-            Welkom bij Studiehalen.nl! Wij zijn een toegewijd team,
-            gespecialiseerd in bijles voor TU Delft studenten. Ontdek hoe wij
-            jou kunnen helpen om écht te excelleren in je studie!
-          </p>
-          <p className="cover-text">
-            Een goede basis van je studie, vooral in het eerste jaar, is
-            essentieel voor het behalen van succes gedurende de rest van de
-            studie. Ons team van getalenteerde studenten staat klaar om je te
-            ondersteunen bij het bereiken van dit doel. We werken persoonlijk en
-            professioneel en zijn vastbesloten om je te helpen slagen.
-          </p>
-        </div>
-      )}
-      <Reviews />
+    <Stack
+      textAlign={"center"}
+      overflow={"hidden"}
+      display={"flex"}
+      alignItems={"center"}
+    >
+      <PageTitle
+        title={"studiehalen.nl"}
+        subtitle={"Bijles om het meeste uit je studie te halen."}
+      />
+      <Box
+        display={"flex"}
+        justifyContent={"space-around"}
+        alignItems={"center"}
+        width={mobile ? "80%" : "60%"}
+        marginBottom={20}
+      >
+        <Paper
+          component="form"
+          onSubmit={handleSearchSubmit}
+          sx={{
+            p: "2px 4px",
+            display: "flex",
+            alignItems: "center",
+            width: "100%",
+            borderRadius: "25px",
+          }}
+        >
+          <InputBase
+            sx={{ ml: 1, flex: 1 }}
+            placeholder="Zoek een vak voor bijles..."
+            inputProps={{ "aria-label": "search vakken" }}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <IconButton type="submit" sx={{ p: "10px" }} aria-label="search">
+            <SearchIcon />
+          </IconButton>
+        </Paper>
+      </Box>
     </Stack>
   );
 };

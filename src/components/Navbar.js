@@ -32,7 +32,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <Box position="sticky" top={0} zIndex={1}>
+    <Box position="sticky" top={0} zIndex={100}>
       <StyledStack
         direction="row"
         alignItems="center"

@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { Stack, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import MailIcon from "@mui/icons-material/Mail";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import HomeIcon from "@mui/icons-material/Home";
-import InfoIcon from "@mui/icons-material/Info";
 import Logo from "./Logo";
 import MenuIcon from "../images/menu.svg";
+import {
+  Group,
+  LocationOn,
+  MenuBook,
+  Reviews,
+  School,
+} from "@mui/icons-material";
 
 const NavbarMobile = ({ scrolled }) => {
   const [width] = useState(window.innerWidth);
@@ -51,9 +55,9 @@ const NavbarMobile = ({ scrolled }) => {
           }}
           marginRight={2}
         />
-        <Link to="/">
+        <a href="#home">
           <Logo mobile={mobile} scrolled={scrolled} />
-        </Link>
+        </a>
         <Typography
           variant="h5"
           fontWeight="bold"
@@ -111,8 +115,8 @@ const NavbarMobile = ({ scrolled }) => {
             <Typography variant="body2" marginTop={1} color={"grey"}>
               Neem contact met ons op om bijles aan te vragen
             </Typography>
-            <Link
-              to="/contact"
+            <a
+              href="#contact"
               style={{
                 padding: "0.35em 0.5em",
                 textDecoration: "none",
@@ -128,15 +132,15 @@ const NavbarMobile = ({ scrolled }) => {
               }}
             >
               Contact
-            </Link>
+            </a>
           </Stack>
           <Typography variant="subtitle2" fontWeight={"bold"} marginTop={4}>
             Waar wil je naartoe?
           </Typography>
           <List>
             <ListItem
-              component={Link}
-              to="/"
+              component="a"
+              href="#home"
               onClick={() => {
                 closeMenu();
               }}
@@ -147,32 +151,68 @@ const NavbarMobile = ({ scrolled }) => {
               <ListItemText primary="Home" />
             </ListItem>
             <ListItem
-              component={Link}
-              to="/over-ons"
+              component="a"
+              href="#reviews"
               onClick={() => {
                 closeMenu();
               }}
             >
               <ListItemIcon>
-                <InfoIcon />
+                <Reviews />
               </ListItemIcon>
-              <ListItemText primary="Over" />
+              <ListItemText primary="Reviews" />
             </ListItem>
             <ListItem
-              component={Link}
-              to="/aanbod"
+              component="a"
+              href="#lesvormen"
               onClick={() => {
                 closeMenu();
               }}
             >
               <ListItemIcon>
-                <ShoppingCartIcon />
+                <School />
               </ListItemIcon>
-              <ListItemText primary="Aanbod" />
+              <ListItemText primary="Lesvormen" />
             </ListItem>
             <ListItem
-              component={Link}
-              to="/contact"
+              component="a"
+              href="#vakken"
+              onClick={() => {
+                closeMenu();
+              }}
+            >
+              <ListItemIcon>
+                <MenuBook />
+              </ListItemIcon>
+              <ListItemText primary="Vakken" />
+            </ListItem>
+            <ListItem
+              component="a"
+              href="#team"
+              onClick={() => {
+                closeMenu();
+              }}
+            >
+              <ListItemIcon>
+                <Group />
+              </ListItemIcon>
+              <ListItemText primary="Team" />
+            </ListItem>
+            <ListItem
+              component="a"
+              href="#locatie"
+              onClick={() => {
+                closeMenu();
+              }}
+            >
+              <ListItemIcon>
+                <LocationOn />
+              </ListItemIcon>
+              <ListItemText primary="Locatie" />
+            </ListItem>
+            <ListItem
+              component="a"
+              href="#contact"
               onClick={() => {
                 closeMenu();
               }}

@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { useState } from "react";
 
-const PageTitle = ({ title, subtitle }) => {
+const PageTitle = ({ title, subtitle, marginBottom = 25 }) => {
   const [width] = useState(window.innerWidth);
   const mobile = width < 768;
 
@@ -18,7 +18,7 @@ const PageTitle = ({ title, subtitle }) => {
         variant={mobile ? "h4" : "h2"}
         color={"#333333"}
         fontWeight={600}
-        marginBottom={mobile ? 10 : 25}
+        marginBottom={mobile ? 10 : marginBottom}
         maxWidth={"90vw"}
       >
         {subtitle}

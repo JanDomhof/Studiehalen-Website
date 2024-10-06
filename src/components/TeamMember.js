@@ -1,5 +1,4 @@
-import { Description, Image } from "@mui/icons-material";
-import { Box, Divider, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { useState } from "react";
 
 const TeamMember = ({ name, bachelor, master, src }) => {
@@ -29,7 +28,7 @@ const TeamMember = ({ name, bachelor, master, src }) => {
         <Typography variant={mobile ? "h5" : "h4"} marginTop={5}>
           {name}
         </Typography>
-        <Typography variant="caption">MSc: {bachelor}</Typography>
+        <Typography variant="caption">{bachelor}</Typography>
       </Box>
     </Stack>
   );

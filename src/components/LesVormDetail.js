@@ -1,6 +1,5 @@
 import { Stack, Typography, Box } from "@mui/material";
 import EastIcon from "@mui/icons-material/East";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const LesVormDetail = ({
@@ -29,7 +28,7 @@ const LesVormDetail = ({
       <Stack
         width={mobile ? "80vw" : 400}
         spacing={1}
-        marginLeft={mobile ? 5 : 0}
+        paddingLeft={mobile ? 5 : 0}
       >
         <Typography variant="h3">{title}</Typography>
         <Stack direction={"column"}>
@@ -65,9 +64,9 @@ const LesVormDetail = ({
         </Typography>
         {voordelen}
         <Box height={30}></Box>
-        <Link to="/contact" className="aanvragen">
+        <a href="#contact" className={"contact-button scrolled"}>
           Contact
-        </Link>
+        </a>
       </Stack>
       <Box width={mobile ? "80%" : 500} paddingLeft={mobile ? 5 : 0}>
         <img src={image} alt="lesvorm" className="lesvorm-img-detail-pc" />

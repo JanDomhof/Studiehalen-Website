@@ -31,7 +31,6 @@ const LesOptie = ({
       onClick={() => clicked()}
       textAlign={"center"}
       className={`les-naam`}
-      zIndex={1}
     >
       <Typography
         color={selected ? "rgba(44, 195, 2, 1)" : "rgba(1, 1, 1, 0.4)"}

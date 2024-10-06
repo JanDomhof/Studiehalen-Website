@@ -1,0 +1,63 @@
+/* Footer Container */
+footer {
+  background-color: var(--secondary);
+  padding: 40px;
+}
+
+/* Typography Styles */
+footer h6 {
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Stack Styles */
+.footer-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-stack-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Link Styles */
+.footer-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+/* Divider Styles */
+.footer-divider {
+  margin: 24px 0;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Centered Text */
+.footer-center {
+  text-align: center;
+}
+
+/* Icon Styles */
+.footer-icon {
+  color: white;
+  margin-right: 8px;
+}
+
+/* Contact Info Styles */
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}

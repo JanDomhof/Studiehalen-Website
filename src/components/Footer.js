@@ -1,97 +1,135 @@
-import { Box, Stack } from "@mui/material";
+import {
+  Box,
+  Stack,
+  Typography,
+  Link as MuiLink,
+  Grid,
+  Divider,
+} from "@mui/material";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIcon from "@mui/icons-material/Phone";
 
 const Footer = () => {
   const [width] = useState(window.innerWidth);
   const mobile = width < 768;
 
-  const contactFoot = (
-    <Stack>
-      <h3>Contact Info</h3>
-      <Stack
-        direction="row"
-        alignItems="center"
-        display={"flex"}
-        justifyContent={"center"}
-        spacing={2}
-      >
-        <Box>
-          <ul
-            className="contact-info"
-            style={{ listStyleType: "none", paddingLeft: 0 }}
-          >
-            <li>Email:</li>
-            <li>Telefoon:</li>
-            <li>Insta:</li>
-          </ul>
-        </Box>
-        <Box>
-          <ul
-            className="contact-info"
-            style={{ listStyleType: "none", paddingLeft: 0 }}
-          >
-            <li>studiehalen.nl@gmail.com</li>
-            <li>+31635312865</li>
-            <li>@studiehalen.nl</li>
-          </ul>
-        </Box>
-      </Stack>
-    </Stack>
-  );
+  return (
+    <Box
+      component="footer"
+      sx={{
+        backgroundColor: "var(--footer-background)",
+        padding: "40px",
+        color: "white",
+      }}
+    >
+      <Grid container spacing={5} justifyContent="center">
+        {/* Contact Information */}
+        <Grid item xs={12} sm={6} md={3}>
+          <Typography variant="h6" gutterBottom>
+            Contact Info
+          </Typography>
+          <Stack sx={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            <Stack
+              direction="row"
+              sx={{ display: "flex", alignItems: "center", gap: "8px" }}
+            >
+              <EmailIcon sx={{ color: "white", marginRight: "8px" }} />
+              <Typography variant="body2">studiehalen.nl@gmail.com</Typography>
+            </Stack>
+            <Stack
+              direction="row"
+              sx={{ display: "flex", alignItems: "center", gap: "8px" }}
+            >
+              <PhoneIcon sx={{ color: "white", marginRight: "8px" }} />
+              <Typography variant="body2">+31635312865</Typography>
+            </Stack>
+            <Stack
+              direction="row"
+              sx={{ display: "flex", alignItems: "center", gap: "8px" }}
+            >
+              <InstagramIcon sx={{ color: "white", marginRight: "8px" }} />
+              <Typography variant="body2">@studiehalen.nl</Typography>
+            </Stack>
+          </Stack>
+        </Grid>
 
-  const navigationFoot = (
-    <Stack>
-      <Stack direction="column">
-        <h3>Navigatie</h3>
-        <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
-          <li>
-            <Link to="/" style={{ color: "black", textDecoration: "none" }}>
+        {/* Navigation Links */}
+        <Grid item xs={12} sm={6} md={3}>
+          <Typography variant="h6" gutterBottom>
+            Navigatie
+          </Typography>
+          <Stack sx={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            <MuiLink
+              href="#home"
+              sx={{ color: "inherit", textDecoration: "none" }}
+            >
               Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/over-ons"
-              style={{ color: "black", textDecoration: "none" }}
+            </MuiLink>
+            <MuiLink
+              href="#over"
+              sx={{ color: "inherit", textDecoration: "none" }}
             >
               Over Ons
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/aanbod"
-              style={{ color: "black", textDecoration: "none" }}
+            </MuiLink>
+            <MuiLink
+              href="#aanbod"
+              sx={{ color: "inherit", textDecoration: "none" }}
             >
               Aanbod
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/contact"
-              style={{ color: "black", textDecoration: "none" }}
+            </MuiLink>
+            <MuiLink
+              href="#contact"
+              sx={{ color: "inherit", textDecoration: "none" }}
             >
               Contact
-            </Link>
-          </li>
-        </ul>
-      </Stack>
-    </Stack>
-  );
+            </MuiLink>
+          </Stack>
+        </Grid>
 
-  return (
-    <Stack
-      direction="row"
-      display="flex"
-      justifyContent="center"
-      alignItems="center"
-      backgroundColor="var(--secondary)"
-      spacing={40}
-      padding={5}
-    >
-      {contactFoot}
-      {mobile ? <></> : navigationFoot}
-    </Stack>
+        {/* Social Media Links */}
+        <Grid item xs={12} sm={6} md={3}>
+          <Typography variant="h6" gutterBottom>
+            Volg Ons
+          </Typography>
+          <Stack
+            direction="row"
+            sx={{ display: "flex", alignItems: "center", gap: "8px" }}
+          >
+            <InstagramIcon sx={{ color: "white", marginRight: "8px" }} />
+            <MuiLink
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noopener"
+              sx={{ color: "inherit", textDecoration: "none" }}
+            >
+              Instagram
+            </MuiLink>
+          </Stack>
+        </Grid>
+
+        {/* Google Maps */}
+        <Grid item xs={12} sm={6} md={3} marginLeft={mobile ? 0 : -10}>
+          <Typography variant="h6" gutterBottom>
+            Locatie
+          </Typography>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d892.570024959601!2d4.347138347341277!3d52.015358865733205!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5b5334dcc0261%3A0xf7dd2ff3d2a6d624!2sStu-D%20Study%20Places!5e0!3m2!1sen!2snl!4v1728043020041!5m2!1sen!2snl"
+            width="300"
+            height="300"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            title="Google Maps"
+          ></iframe>
+        </Grid>
+      </Grid>
+      <Divider sx={{ marginY: 3, borderColor: "rgba(255, 255, 255, 0.2)" }} />
+      <Typography variant="body2" align="center">
+        © {new Date().getFullYear()} Studiehalen.nl. Alle rechten voorbehouden.
+      </Typography>
+    </Box>
   );
 };
 
