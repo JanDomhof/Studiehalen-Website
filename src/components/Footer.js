@@ -33,21 +33,48 @@ const Footer = () => {
           <Stack sx={{ display: "flex", flexDirection: "column", gap: "8px" }}>
             <Stack
               direction="row"
-              sx={{ display: "flex", alignItems: "center", gap: "8px" }}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                cursor: "pointer",
+              }}
+              onClick={(e) => {
+                window.location.href = "mailto:info@studiehalen.nl";
+                e.preventDefault();
+              }}
             >
               <EmailIcon sx={{ color: "white", marginRight: "8px" }} />
-              <Typography variant="body2">studiehalen.nl@gmail.com</Typography>
+              <Typography variant="body2">info@studiehalen.nl</Typography>
             </Stack>
             <Stack
               direction="row"
-              sx={{ display: "flex", alignItems: "center", gap: "8px" }}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                cursor: "pointer",
+              }}
+              onClick={(e) => {
+                window.location.href = "tel:+31635312865";
+                e.preventDefault();
+              }}
             >
               <PhoneIcon sx={{ color: "white", marginRight: "8px" }} />
               <Typography variant="body2">+31635312865</Typography>
             </Stack>
             <Stack
               direction="row"
-              sx={{ display: "flex", alignItems: "center", gap: "8px" }}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                cursor: "pointer",
+              }}
+              onClick={(e) => {
+                window.open("https://www.instagram.com/studiehalen.nl");
+                e.preventDefault();
+              }}
             >
               <InstagramIcon sx={{ color: "white", marginRight: "8px" }} />
               <Typography variant="body2">@studiehalen.nl</Typography>
@@ -95,17 +122,19 @@ const Footer = () => {
           </Typography>
           <Stack
             direction="row"
-            sx={{ display: "flex", alignItems: "center", gap: "8px" }}
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              cursor: "pointer",
+            }}
+            onClick={(e) => {
+              window.open("https://www.instagram.com/studiehalen.nl");
+              e.preventDefault();
+            }}
           >
             <InstagramIcon sx={{ color: "white", marginRight: "8px" }} />
-            <MuiLink
-              href="https://www.instagram.com"
-              target="_blank"
-              rel="noopener"
-              sx={{ color: "inherit", textDecoration: "none" }}
-            >
-              Instagram
-            </MuiLink>
+            Instagram
           </Stack>
         </Grid>
 
