@@ -108,12 +108,13 @@ const NavbarMobile = ({ scrolled }) => {
           justifyContent={"flex-start"}
           alignItems={"flex-start"}
         >
-          <Stack borderBottom={"1px solid rgba(0,0,0,0.3)"}>
+          <Stack borderBottom={"1px solid rgba(0,0,0,0.3)"} spacing={1}>
             <Typography variant="subtitle2" fontWeight={"bold"}>
               Welkom bij Studiehalen.nl
             </Typography>
-            <Typography variant="body2" marginTop={1} color={"grey"}>
-              Neem contact met ons op om bijles aan te vragen
+            <Typography variant="body2" color={"grey"}>
+              Neem contact met ons op om bijles aan te vragen of log in op onze
+              portal.
             </Typography>
             <a
               href="#contact"
@@ -125,13 +126,26 @@ const NavbarMobile = ({ scrolled }) => {
                 border: "1px solid black",
                 width: "89%",
                 marginTop: "20px",
-                marginBottom: "30px",
               }}
               onClick={() => {
                 closeMenu();
               }}
             >
               Contact
+            </a>
+            <a
+              href="https://studiehalen.teachworks.com/"
+              style={{
+                padding: "0.35em 0.5em",
+                textDecoration: "none",
+                color: "black",
+                borderRadius: "5px",
+                border: "1px solid black",
+                width: "89%",
+                marginBottom: "30px",
+              }}
+            >
+              Inloggen
             </a>
           </Stack>
           <Typography variant="subtitle2" fontWeight={"bold"} marginTop={4}>
