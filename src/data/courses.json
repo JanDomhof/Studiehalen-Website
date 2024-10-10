@@ -1,111 +1,111 @@
 [
-    {
-      "studyProgram": "Werktuig Bouwkunde",
-      "year": 1,
-      "name": "Analyse 1",
-      "code": "WBMT1050"
-    },
-    {
-      "studyProgram": "Werktuig Bouwkunde",
-      "year": 1,
-      "name": "Analyse 2",
-      "code": "WBMT1050"
-    },
-    {
-      "studyProgram": "Werktuig Bouwkunde",
-      "year": 1,
-      "name": "Lineaire Algebra 1",
-      "code": "WBMT1051"
-    },
-    {
-      "studyProgram": "Werktuig Bouwkunde",
-      "year": 1,
-      "name": "Lineaire Algebra 2",
-      "code": "WBMT1051"
-    },
-    {
-      "studyProgram": "Werktuig Bouwkunde",
-      "year": 1,
-      "name": "Statica",
-      "code": "WB1630-20"
-    },
-    {
-      "studyProgram": "Werktuig Bouwkunde",
-      "year": 1,
-      "name": "Sterkteleer",
-      "code": "WB1631-15"
-    },
-    {
-      "studyProgram": "Werktuig Bouwkunde",
-      "year": 1,
-      "name": "Dynamica",
-      "code": "WB1135"
-    },
-    {
-      "studyProgram": "Werktuig Bouwkunde",
-      "year": 1,
-      "name": "Thermodynamica",
-      "code": "WB1530-14"
-    },
-    {
-      "studyProgram": "Werktuig Bouwkunde",
-      "year": 2,
-      "name": "Analyse 3",
-      "code": "WBMT2048"
-    },
-    {
-      "studyProgram": "Werktuig Bouwkunde",
-      "year": 2,
-      "name": "Differentiaalvergelijkingen",
-      "code": "WBMT2048"
-    },
-    {
-      "studyProgram": "Werktuig Bouwkunde",
-      "year": 2,
-      "name": "Kansrekening en Statistiek",
-      "code": "WBMT2049"
-    },
-    {
-      "studyProgram": "Werktuig Bouwkunde",
-      "year": 2,
-      "name": "Numerieke Wiskunde",
-      "code": "WBMT2049"
-    },
-    {
-      "studyProgram": "Werktuig Bouwkunde",
-      "year": 2,
-      "name": "Rigid-Body Dynamics",
-      "code": "WB2630"
-    },
-    {
-      "studyProgram": "Werktuig Bouwkunde",
-      "year": 2,
-      "name": "Continuum Mechanics",
-      "code": "WB2630"
-    },
-    {
-      "studyProgram": "Werktuig Bouwkunde",
-      "year": 2,
-      "name": "Stromingsleer",
-      "code": "WB2542"
-    },
-    {
-      "studyProgram": "Werktuig Bouwkunde",
-      "year": 2,
-      "name": "Warmte-overdracht",
-      "code": "WB2542"
-    },
-    {
-      "studyProgram": "Werktuig Bouwkunde",
-      "year": 2,
-      "name": "Signaalanalyse",
-      "code": "WB2235"
-    },
-    {
-      "studyProgram": "Werktuig Bouwkunde",
-      "year": 2,
-      "name": "Materiaalkunde",
-      "code": "WB2330"
-    }
-  ]
+  {
+    "studyProgram": "Werktuig Bouwkunde",
+    "year": 1,
+    "name": "Analyse 1",
+    "code": "WBMT1050"
+  },
+  {
+    "studyProgram": "Werktuig Bouwkunde",
+    "year": 1,
+    "name": "Analyse 2",
+    "code": "WBMT1050"
+  },
+  {
+    "studyProgram": "Werktuig Bouwkunde",
+    "year": 1,
+    "name": "Lineaire Algebra 1",
+    "code": "WBMT1051"
+  },
+  {
+    "studyProgram": "Werktuig Bouwkunde",
+    "year": 1,
+    "name": "Lineaire Algebra 2",
+    "code": "WBMT1051"
+  },
+  {
+    "studyProgram": "Werktuig Bouwkunde",
+    "year": 1,
+    "name": "Statica",
+    "code": "WB1630-20"
+  },
+  {
+    "studyProgram": "Werktuig Bouwkunde",
+    "year": 1,
+    "name": "Sterkteleer",
+    "code": "WB1631-15"
+  },
+  {
+    "studyProgram": "Werktuig Bouwkunde",
+    "year": 1,
+    "name": "Dynamica",
+    "code": "WB1135"
+  },
+  {
+    "studyProgram": "Werktuig Bouwkunde",
+    "year": 1,
+    "name": "Thermodynamica",
+    "code": "WB1530-14"
+  },
+  {
+    "studyProgram": "Werktuig Bouwkunde",
+    "year": 2,
+    "name": "Analyse 3",
+    "code": "WBMT2048"
+  },
+  {
+    "studyProgram": "Werktuig Bouwkunde",
+    "year": 2,
+    "name": "Differentiaalvergelijkingen",
+    "code": "WBMT2048"
+  },
+  {
+    "studyProgram": "Werktuig Bouwkunde",
+    "year": 2,
+    "name": "Kansrekening en Statistiek",
+    "code": "WBMT2049"
+  },
+  {
+    "studyProgram": "Werktuig Bouwkunde",
+    "year": 2,
+    "name": "Numerieke Wiskunde",
+    "code": "WBMT2049"
+  },
+  {
+    "studyProgram": "Werktuig Bouwkunde",
+    "year": 2,
+    "name": "Rigid-Body Dynamics",
+    "code": "WB2630"
+  },
+  {
+    "studyProgram": "Werktuig Bouwkunde",
+    "year": 2,
+    "name": "Continuum Mechanics",
+    "code": "WB2630"
+  },
+  {
+    "studyProgram": "Werktuig Bouwkunde",
+    "year": 2,
+    "name": "Stromingsleer",
+    "code": "WB2542"
+  },
+  {
+    "studyProgram": "Werktuig Bouwkunde",
+    "year": 2,
+    "name": "Warmte-overdracht",
+    "code": "WB2542"
+  },
+  {
+    "studyProgram": "Werktuig Bouwkunde",
+    "year": 2,
+    "name": "Signaalanalyse",
+    "code": "WB2235"
+  },
+  {
+    "studyProgram": "Werktuig Bouwkunde",
+    "year": 2,
+    "name": "Materiaalkunde",
+    "code": "WB2330"
+  }
+]
   

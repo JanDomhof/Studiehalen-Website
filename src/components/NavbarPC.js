@@ -36,6 +36,12 @@ const NavbarPC = ({ scrolled }) => {
           Locatie
         </a>
         <a
+          href="https://studiehalen.teachworks.com/"
+          className={scrolled ? "link scrolled" : "link"}
+        >
+          Inloggen
+        </a>
+        <a
           href="#contact"
           className={scrolled ? "contact-button scrolled" : "contact-button"}
         >
