@@ -106,6 +106,240 @@
     "year": 2,
     "name": "Materiaalkunde",
     "code": "WB2330"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 1,
+    "name": "Probleemanalyse",
+    "code": "TB111c"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 1,
+    "name": "Differentiaalvergelijkingen en Lineaire Algebra",
+    "code": "TB131b"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 1,
+    "name": "Bestuur en recht 1",
+    "code": "TB121b"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 1,
+    "name": "Systeemmodellering 1: modelleerprincipes",
+    "code": "TB112e"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 1,
+    "name": "Multivariabele Analyse en Lineaire Algebra",
+    "code": "TB132b"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 1,
+    "name": "Micro- en markteconomie",
+    "code": "TB122b"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 1,
+    "name": "Introduction to programming in Python",
+    "code": "TB133d"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 1,
+    "name": "Statistiek en data-analyse",
+    "code": "TB134a"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 1,
+    "name": "Introductie in energie- en industriesystemen",
+    "code": "TB141Eb"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 1,
+    "name": "ICT system engineering and rapid prototyping",
+    "code": "TB141Id"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 1,
+    "name": "Transport system analysis",
+    "code": "TB141Tb"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 1,
+    "name": "Systeemmodellering 2: complexe systemen",
+    "code": "TB113b"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 1,
+    "name": "Besliskunde",
+    "code": "TB135c"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 1,
+    "name": "Analyse van energiesystemen",
+    "code": "TB142Ea"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 1,
+    "name": "Data science in Technische Bestuurskunde",
+    "code": "TB142Ic"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 1,
+    "name": "Logistiek 1",
+    "code": "TB142Ta"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 2,
+    "name": "Economie van infrastructuren",
+    "code": "TB221b"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 2,
+    "name": "Systeemmodellering 3: simulatiemethoden",
+    "code": "TB231c"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 2,
+    "name": "Fysische transportverschijnselen",
+    "code": "TB241Ea"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 2,
+    "name": "Object oriented programming",
+    "code": "TB241Ib"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 2,
+    "name": "Logistics 2",
+    "code": "TB241Tb"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 2,
+    "name": "Bestuur en recht 2",
+    "code": "TB222a"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 2,
+    "name": "Multivariate data-analyse",
+    "code": "TB234b"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 2,
+    "name": "Processen in de energiesector",
+    "code": "TB242Eb"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 2,
+    "name": "Interconnected engineering systems",
+    "code": "TB242Ic"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 2,
+    "name": "Verbeteren van het transportsysteem",
+    "code": "TB242Tb"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 2,
+    "name": "Analyse van multi-actorsystemen",
+    "code": "TB211a"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 2,
+    "name": "Organisatie en management",
+    "code": "TB223c"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 2,
+    "name": "Systeemmodellering 4: project simulatiemethoden",
+    "code": "TB233b"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 2,
+    "name": "Ethiek en veiligheid",
+    "code": "TB212b"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 2,
+    "name": "Onderzoek en data-analyse",
+    "code": "TB232b"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 2,
+    "name": "Analyse van industriële systemen",
+    "code": "TB243Ea"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 2,
+    "name": "I&C Systems: Risk & Control",
+    "code": "TB243Ib"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 2,
+    "name": "Transport en planning",
+    "code": "CTB1420"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 3,
+    "name": "Governance specialisatie",
+    "code": "TB321D"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 3,
+    "name": "Prestatieanalyse in Energie en Industrie",
+    "code": "TB341Ec"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 3,
+    "name": "I and C in een socio-technische context",
+    "code": "TB341Id"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 3,
+    "name": "Quantitative Models for Transport",
+    "code": "TB341Tc"
+  },
+  {
+    "studyProgram": "Technische Bestuurskunde",
+    "year": 3,
+    "name": "Governance van sociotechnische systemen",
+    "code": "TB323a"
   }
 ]
   

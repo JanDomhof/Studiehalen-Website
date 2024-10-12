@@ -1,4 +1,7 @@
+// Vakken.js
+
 import React, { useState, useEffect } from "react";
+import Fuse from "fuse.js";
 import {
   Stack,
   Typography,
@@ -58,14 +61,35 @@ const Vakken = () => {
     };
   }, []);
 
-  // Filter courses based on the selected filters
-  const filteredCourses = coursesData.filter((course) => {
-    return (
-      (studyProgram === "" || course.studyProgram === studyProgram) &&
-      (year === "" || course.year === parseInt(year)) &&
-      (name === "" || course.name.toLowerCase().includes(name.toLowerCase()))
-    );
-  });
+  // Function to get filtered courses
+  const getFilteredCourses = () => {
+    let filtered = coursesData;
+
+    // Apply studyProgram and year filters if selected
+    if (studyProgram !== "") {
+      filtered = filtered.filter(
+        (course) => course.studyProgram === studyProgram
+      );
+    }
+
+    if (year !== "") {
+      filtered = filtered.filter((course) => course.year === parseInt(year));
+    }
+
+    // Use Fuse.js for fuzzy searching the name
+    if (name !== "") {
+      const fuseSearch = new Fuse(filtered, {
+        keys: ["name"],
+        threshold: 0.4, // Adjust as needed
+      });
+      const fuseResults = fuseSearch.search(name);
+      filtered = fuseResults.map((result) => result.item);
+    }
+
+    return filtered;
+  };
+
+  const filteredCourses = getFilteredCourses();
 
   // Calculate total pages for pagination
   const totalPages = Math.ceil(filteredCourses.length / itemsPerPage);
@@ -158,6 +182,9 @@ const Vakken = () => {
                 <MenuItem value="Werktuig Bouwkunde">
                   Werktuig Bouwkunde
                 </MenuItem>
+                <MenuItem value="Technische Bestuurskunde">
+                  Technische Bestuurskunde
+                </MenuItem>
                 {/* Add more study programs as needed */}
               </Select>
             </FormControl>
@@ -183,8 +210,9 @@ const Vakken = () => {
                 <MenuItem value="">
                   <em>Alle Jaren</em>
                 </MenuItem>
-                <MenuItem value="1">Jaar 1</MenuItem>
-                <MenuItem value="2">Jaar 2</MenuItem>
+                <MenuItem value="1">Eerste Jaar</MenuItem>
+                <MenuItem value="2">Tweede Jaar</MenuItem>
+                <MenuItem value="3">Derde Jaar</MenuItem>
                 {/* Add more years as needed */}
               </Select>
             </FormControl>
