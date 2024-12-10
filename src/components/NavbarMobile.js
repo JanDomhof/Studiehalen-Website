@@ -10,6 +10,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import Logo from "./Logo";
 import MenuIcon from "../images/menu.svg";
 import {
+  FileDownload,
   Group,
   LocationOn,
   MenuBook,
@@ -199,6 +200,18 @@ const NavbarMobile = ({ scrolled }) => {
                 <MenuBook />
               </ListItemIcon>
               <ListItemText primary="Vakken" />
+            </ListItem>
+            <ListItem
+              component="a"
+              href="#boekjes"
+              onClick={() => {
+                closeMenu();
+              }}
+            >
+              <ListItemIcon>
+                <FileDownload />
+              </ListItemIcon>
+              <ListItemText primary="Uitwerkingen" />
             </ListItem>
             <ListItem
               component="a"

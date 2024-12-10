@@ -29,6 +29,9 @@ const NavbarPC = ({ scrolled }) => {
         <a href="#vakken" className={scrolled ? "link scrolled" : "link"}>
           Vakken
         </a>
+        <a href="#boekjes" className={scrolled ? "link scrolled" : "link"}>
+          Uitwerkingen
+        </a>
         <a href="#team" className={scrolled ? "link scrolled" : "link"}>
           Team
         </a>

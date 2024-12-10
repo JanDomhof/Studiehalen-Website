@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Reviews from "./pages/Reviews";
 import Vakken from "./pages/Vakken";
+import Boekjes from "./pages/Boekjes";
 import Team from "./pages/Team";
 import Locatie from "./pages/Locatie";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -41,6 +42,9 @@ const App = () => {
       </section>
       <section id="vakken" style={{ scrollMarginTop: "150px" }}>
         <Vakken />
+      </section>
+      <section id="boekjes" style={{ scrollMarginTop: "150px" }}>
+        <Boekjes />
       </section>
       <section id="team">
         <Team />

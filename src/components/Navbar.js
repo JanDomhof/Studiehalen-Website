@@ -11,7 +11,7 @@ const StyledStack = styled(Stack)(({ theme }) => ({
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
-  const mobile = width < 768;
+  const mobile = width < 1000;
 
   const handleScroll = () => {
     const offset = window.scrollY;
