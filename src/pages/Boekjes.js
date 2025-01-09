@@ -1,9 +1,20 @@
 import React, { useState } from "react";
-import { TextField, Button, Typography, Box, Alert } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Typography,
+  Box,
+  Alert,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+} from "@mui/material";
 import emailjs from "emailjs-com";
 
 const BookletDownload = () => {
   const [email, setEmail] = useState("");
+  const [week, setWeek] = useState("1"); // Default week is '1'
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
 
@@ -20,16 +31,17 @@ const BookletDownload = () => {
 
     // EmailJS configuration
     const templateParams = {
-      user_email: email, // recipient's email
-      file_link: `${window.location.origin}/boekjes/Sterkteleer Uitwerkingen.pdf`, // Public link to the file
+      user_email: email,
+      // Dynamisch linkje naar de PDF van Sterkteleer-uitwerkingen voor de gekozen week
+      file_link: `${window.location.origin}/boekjes/Sterkteleer Uitwerkingen Week ${week}.pdf`,
     };
 
     emailjs
       .send(
-        "service_w1v087f", // Replace with your EmailJS Service ID
-        "template_o2m2n3h", // Replace with your EmailJS Template ID
+        "service_w1v087f", // Vervang met je EmailJS Service ID
+        "template_o2m2n3h", // Vervang met je EmailJS Template ID
         templateParams,
-        "Stf7T_tRCxolhbkqs" // Replace with your EmailJS Public Key
+        "Stf7T_tRCxolhbkqs" // Vervang met je EmailJS Public Key
       )
       .then(
         (response) => {
@@ -63,14 +75,16 @@ const BookletDownload = () => {
         }}
       >
         <Typography variant="h4" gutterBottom>
-          Download Uitwerkingen Boekje
+          Sterkteleer (WB) Uitwerkingen
         </Typography>
         <Typography variant="body1" gutterBottom>
-          Vul je email in en ontvang het boekje (PDF) meteen in je mail!
+          Vul je email in en selecteer hieronder de week waarvoor je het
+          uitwerkingen-boekje (PDF) wilt ontvangen. Je ontvangt het meteen in je
+          mail!
         </Typography>
         <form onSubmit={handleSubmit}>
           <TextField
-            label="Email Adres"
+            label="Emailadres"
             variant="outlined"
             fullWidth
             required
@@ -78,28 +92,43 @@ const BookletDownload = () => {
             onChange={(e) => setEmail(e.target.value)}
             error={error}
             margin="normal"
-            helperText={error ? "Please enter a valid email" : ""}
+            helperText={error ? "Voer een geldig e-mailadres in" : ""}
           />
+          <FormControl variant="outlined" fullWidth margin="normal" required>
+            <InputLabel id="week-label">Week</InputLabel>
+            <Select
+              labelId="week-label"
+              label="Week"
+              value={week}
+              onChange={(e) => setWeek(e.target.value)}
+            >
+              <MenuItem value="4">Week 4</MenuItem>
+              <MenuItem value="5">Week 5</MenuItem>
+              <MenuItem value="6">Week 6</MenuItem>
+            </Select>
+          </FormControl>
           <Button type="submit" variant="contained" color="primary">
-            Send to Email
+            Stuur naar E-mail
           </Button>
         </form>
         {success && (
           <Alert severity="success" sx={{ marginTop: "1rem" }}>
             <p>
-              Je ontvangt het boekje zo snel mogelijk in je email! Als je een
-              fout in de uitwerking ziet, laat dat dan graag weten via het
-              contact form beneden! Bedankt voor het downloaden!
+              Je ontvangt het boekje voor Sterkteleer (Werktuigbouwkunde) zo
+              snel mogelijk in je mail! Zie je een fout in de uitwerking? Laat
+              het ons weten via het contactformulier onderaan de pagina.
             </p>
             <p>
-              Mocht iemand die je kent dit boekje ook willen hebben, stuur dan
-              vooral de link naar onze website in plaats van het boekje zelf.
+              Mocht iemand anders ook geïnteresseerd zijn, verwijs hen dan
+              gerust door naar onze website in plaats van het boekje zelf te
+              delen.
             </p>
           </Alert>
         )}
         {error && (
           <Alert severity="error" sx={{ marginTop: "1rem" }}>
-            Er ging iets fout. Probeer het later opnieuw.
+            Er ging iets mis. Controleer je emailadres of probeer het later
+            opnieuw.
           </Alert>
         )}
       </Box>
