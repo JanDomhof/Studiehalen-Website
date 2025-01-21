@@ -106,6 +106,7 @@ const BookletDownload = () => {
               <MenuItem value="5">Week 5</MenuItem>
               <MenuItem value="6">Week 6</MenuItem>
               <MenuItem value="7">Week 7</MenuItem>
+              <MenuItem value="8">Week 8</MenuItem>
             </Select>
           </FormControl>
           <Button type="submit" variant="contained" color="primary">
